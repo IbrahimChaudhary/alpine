@@ -217,6 +217,27 @@
     animation: sheetTransition 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
+  /* Product card animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fadeIn {
+    animation: fadeIn 0.3s ease-out;
+  }
+
+  /* Custom smooth easing for text movements */
+  .smooth-text-movement {
+    transition: transform ease-in-out duration-500 cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
   /* Theme transition overlay animation */
   @keyframes themeTransitionOverlay {
     0% {
