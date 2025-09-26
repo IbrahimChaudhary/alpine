@@ -29,7 +29,7 @@ export function Navbar() {
   // Navigation menu items
   const navItems: NavItem[] = [
     { name: "Product", href: "#" },
-    { name: "Specifications", href: "#" },
+    { name: "Specifications", href: "/specifications" },
     { name: "About", href: "/about" },
     { name: "Pricing", href: "#" },
     { name: "Contact", href: "/contact" },
