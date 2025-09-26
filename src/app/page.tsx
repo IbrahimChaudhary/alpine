@@ -1,5 +1,8 @@
 import { DiscountCta } from "@/components/discount-cta";
 import { ValuesSection } from "@/components/values-section";
+import { FAQSection } from "@/components/faq-section";
+import { SpeakerFeatures } from "@/components/speaker-features";
+import { InnovationSection } from "@/components/innovation-section";
 
 /**
  * Home Page Component
@@ -81,7 +84,16 @@ export default function Home() {
         sectionSubtitle="We believe great sound should be simple, powerful and accessible. Our values are rooted in a deep respect for our community."
         values={companyValues}
       />
-      
+
+      {/* Speaker Features Section */}
+      <SpeakerFeatures />
+
+      {/* Innovation Section */}
+      <InnovationSection />
+
+      {/* FAQ Section */}
+      <FAQSection />
+
       {/* Discount CTA Section */}
       <DiscountCta />
 

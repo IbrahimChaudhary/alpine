@@ -284,3 +284,14 @@
     stroke-dashoffset: 0;
   }
 }
+
+/* Custom list marker styles */
+.custom-list-marker li::marker {
+  color: #252525;
+  opacity: 0.3;
+}
+
+.dark .custom-list-marker li::marker {
+  color: #fafafa;
+  opacity: 0.6;
+}
