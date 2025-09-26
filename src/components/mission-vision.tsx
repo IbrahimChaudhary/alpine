@@ -16,7 +16,7 @@ import { AudioLines } from "lucide-react";
 export function MissionVision() {
   return (
     <section className="py-20 px-4 sm:px-6  ">
-      <div className="max-w-7xl">
+      <div className="max-w-7xl mx-auto">
         <div className="flex gap-18 items-start">
           {/* Left Column - Team Image */}
           <div className="relative w-full">
@@ -53,7 +53,7 @@ export function MissionVision() {
               </h2>
               <p className="text-lg md:text-xl text-[#252525] dark:text-[#FAFAFA] leading-[2.2rem]">
                 To craft beautifully designed speakers that deliver powerful,
-                crystal-clear sound—whether you're relaxing at home, exploring
+                crystal-clear sound—whether you&apos;re relaxing at home, exploring
                 the outdoors, or hosting a party. Sound that moves with you,
                 wherever life takes you.
               </p>

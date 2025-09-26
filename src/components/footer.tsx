@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { Twitter, Instagram, X, TwitterIcon } from "lucide-react"
+import { Instagram, TwitterIcon } from "lucide-react"
 
 /**
  * Footer Component
@@ -29,7 +29,7 @@ export function Footer() {
      
 
       {/* Footer Content */}
-      <div className="  max-w-7xl  px-4 sm:px-6 ">
+      <div className="  max-w-7xl mx-auto  px-4 sm:px-6 ">
         <div className="grid grid-cols-1 md:grid-cols-2">
           {/* Brand Section */}
          

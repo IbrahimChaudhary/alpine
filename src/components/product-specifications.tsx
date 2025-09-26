@@ -2,6 +2,7 @@
 
 import { cn } from "@/lib/utils";
 import { FileText } from "lucide-react";
+import Image from "next/image";
 
 interface SpecificationItem {
   label: string;
@@ -49,9 +50,11 @@ export default function ProductSpecifications({
 
               {productImage && (
                 <div className="relative w-full rounded-2xl overflow-hidden">
-                  <img
+                  <Image
                     src={productImage.src}
                     alt={productImage.alt}
+                    width={600}
+                    height={400}
                     className="w-[100%] h-full object-cover"
                   />
                 </div>

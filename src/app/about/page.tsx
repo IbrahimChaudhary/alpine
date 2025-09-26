@@ -74,9 +74,9 @@ export default function AboutPage() {
               {/* Description */}
               <p className="text-lg md:text-xl text-white leading-relaxed max-w-2xl">
                 Every Sonic speaker is engineered for real life—compact yet
-                bold, tough yet refined. Whether you're deep in a busy city or
+                bold, tough yet refined. Whether you&apos;re deep in a busy city or
                 off the grid, Sonic delivers consistent, high-quality audio in a
-                sleek form you'll love to show off.
+                sleek form you&apos;ll love to show off.
               </p>
 
               {/* CTA Button */}
