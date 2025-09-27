@@ -15,8 +15,8 @@ import { Twitter, Instagram, X, TwitterIcon } from "lucide-react"
  */
 export function Footer() {
   const companyLinks = [
-    { name: "Blog", href: "#" },
-    { name: "Contact us", href: "#" },
+    { name: "Blog", href: "/blog" },
+    { name: "Contact us", href: "/contact" },
   ]
 
   const legalLinks = [

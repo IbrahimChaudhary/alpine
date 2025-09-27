@@ -38,7 +38,7 @@ export function FAQSection() {
   ];
 
   return (
-    <section className="py-20 px-8 ">
+    <section className="py-14 px-8 ">
       <div className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-8 items-start">
           {/* Left Column - Header */}

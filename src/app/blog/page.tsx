@@ -1,0 +1,149 @@
+"use client";
+
+import { useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { Paperclip  } from "lucide-react";
+
+export default function BlogPage() {
+  const [hoveredCard, setHoveredCard] = useState<number | null>(null);
+
+  const blogPosts = [
+    {
+      id: 1,
+      slug: "evolution-of-speakers",
+      title: "The Evolution of Speakers",
+      date: "Apr 1, 2025",
+      image: "/blog-1.webp",
+      excerpt: "Discover how speaker technology has advanced from vintage designs to modern innovations.",
+    },
+    {
+      id: 2,
+      slug: "right-speaker-for-you",
+      title: "Right Speaker for You",
+      date: "Mar 2, 2025",
+      image: "/blog-2.webp",
+      excerpt: "Learn how to choose the perfect speaker for your space and listening preferences.",
+    },
+    {
+      id: 3,
+      slug: "wireless-speakers",
+      title: "Wireless Speakers",
+      date: "Mar 1, 2025",
+      image: "/blog-3.webp",
+      excerpt: "Explore the benefits and innovations in wireless speaker technology.",
+    },
+    {
+      id: 4,
+      slug: "dolby-atmos-and-beyond",
+      title: "Dolby Atmos and Beyond",
+      date: "Feb 2, 2025",
+      image: "/blog-4.webp",
+      excerpt: "Experience immersive 3D audio technology that transforms your listening experience.",
+    },
+    {
+      id: 5,
+      slug: "eco-friendly-audio-solutions",
+      title: "Eco-Friendly Audio Solutions",
+      date: "Feb 1, 2025",
+      image: "/blog-5.webp",
+      excerpt: "Sustainable audio products that deliver great sound while protecting the environment.",
+    },
+    {
+      id: 6,
+      slug: "why-size-and-shape-matter",
+      title: "Why Size and Shape Matter",
+      date: "Feb 1, 2025",
+      image: "/blog-6.webp",
+      excerpt: "Understanding how speaker design affects sound quality and room acoustics.",
+    },
+  ];
+
+  const defaultActiveCard = 1; // Second card (index 1) is active by default
+
+  return (
+    <div className="min-h-screen">
+      <div className="max-w-7xl mx-auto px-8 py-26 pb-32">
+
+        {/* Header Section */}
+        <div className="text-center mb-16">
+          {/* Badge */}
+          <div className="flex border-[0.5px] border-[#2525252f] dark:border-[#fafafa4b] rounded-full px-4 py-2 w-fit mx-auto items-center justify-center gap-2 mb-8">
+            <Paperclip  className="w-5 h-5 text-[#252525] dark:text-[#fafafa]" />
+            <span className="text-[20px] text-[#252525] dark:text-[#fafafa]">
+              Blog
+            </span>
+          </div>
+
+          {/* Main Title */}
+          <h1 className="text-4xl md:text-[44px] text-[#252525] dark:text-[#fafafa] mb-6">
+            Sound Insights
+          </h1>
+
+          {/* Description */}
+          <p className="text-[20px] text-[#252525] dark:text-[#fafafa] leading-tight  mx-auto">
+            Stay updated with the latest trends in audio technology, speaker innovations, and expert tips to enhance your listening experience.
+          </p>
+        </div>
+
+        {/* Blog Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+          {blogPosts.map((post, index) => (
+            <Link
+              key={post.id}
+              href={`/blog/${post.slug}`}
+              className="group block"
+              onMouseEnter={() => setHoveredCard(index)}
+              onMouseLeave={() => setHoveredCard(null)}
+            >
+              <article className={`transition-all duration-500 ease-out rounded-3xl overflow-hidden ${
+                (hoveredCard === null && index === defaultActiveCard) || hoveredCard === index
+                  ? 'bg-[#fafafa] dark:bg-[#2a2a2a]'
+                  : 'bg-transparent'
+              }`}>
+
+                {/* Image */}
+                <div className="relative h-[320px] overflow-hidden rounded-3xl">
+                  <Image
+                    src={post.image}
+                    alt={post.title}
+                    width={400}
+                    height={256}
+                    className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+                  />
+                </div>
+
+                {/* Content */}
+                <div className={`p-6 transition-all duration-500 ease-out ${
+                  hoveredCard === index
+                    ? 'transform translate-x-2'
+                    : hoveredCard !== null && (
+                        index === hoveredCard - 1 ||
+                        index === hoveredCard + 1
+                      )
+                      ? 'transform -translate-x-1'
+                      : 'transform translate-x-0'
+                }`}>
+
+                  {/* Title */}
+                  <h2 className="text-[24px] text-[#252525] dark:text-[#fafafa] mb-1 line-clamp-2">
+                    {post.title}
+                  </h2>
+
+                  {/* Date */}
+                  <p className="text-[#252525] text-[16px] dark:text-[#fafafa] opacity-70 mb-4">
+                    {post.date}
+                  </p>
+
+                 
+                </div>
+
+              </article>
+            </Link>
+          ))}
+        </div>
+
+      </div>
+    </div>
+  );
+}
