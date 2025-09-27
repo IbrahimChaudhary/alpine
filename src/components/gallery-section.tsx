@@ -9,8 +9,6 @@ export function GallerySection() {
   const [activeImage, setActiveImage] = useState(0);
   const [hoveredThumbnail, setHoveredThumbnail] = useState<number | null>(null);
   const [direction, setDirection] = useState(0);
-  const [animationDuration, setAnimationDuration] = useState(0.6);
-  const [isSequencing, setIsSequencing] = useState(false);
 
   const handleImageChange = (newIndex: number) => {
     if (newIndex === activeImage) return;
@@ -115,7 +113,7 @@ export function GallerySection() {
                 transition={{
                   type: "tween",
                   ease: [0.25, 0.1, 0.25, 1],
-                  duration: animationDuration
+                  duration: 0.6
                 }}
                 className="absolute inset-0"
               >
