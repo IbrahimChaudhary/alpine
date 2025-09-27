@@ -15,13 +15,13 @@ import { Instagram, TwitterIcon } from "lucide-react"
  */
 export function Footer() {
   const companyLinks = [
-    { name: "Blog", href: "#" },
-    { name: "Contact us", href: "#" },
+    { name: "Blog", href: "/blog" },
+    { name: "Contact us", href: "/contact" },
   ]
 
   const legalLinks = [
-    { name: "Terms of Service", href: "#" },
-    { name: "Privacy Policy", href: "#" },
+    { name: "Terms of Service", href: "/terms" },
+    { name: "Privacy Policy", href: "/privacy" },
   ]
 
   return (

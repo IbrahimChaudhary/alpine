@@ -1,6 +1,6 @@
 "use client"
 
-import { LucideIcon, Box, Shield, Leaf, Star, Zap, Heart } from "lucide-react"
+import { LucideIcon, Box, Shield, Leaf, Zap, Heart,Diamond , Star,ShoppingCart , Flag} from "lucide-react"
 
 /**
  * Value Item Interface
@@ -51,7 +51,10 @@ export function ValuesSection({
     Leaf,
     Star,
     Zap,
-    Heart
+    Heart,
+    Diamond,
+    ShoppingCart,
+    Flag
   }
 
   // Helper function to get icon component
@@ -87,14 +90,14 @@ export function ValuesSection({
 
           </div>
             {/* Main Heading */}
-            <div className="flex items-center">
-            <h2 className="text-4xl w-full md:text-5xl lg:text-[44px] font-semibold text-[#252525] dark:text-[#FAFAFA] leading-tight">
+            <div className="grid grid-cols-2 items-center">
+            <h2 className="text-4xl w-full md:text-5xl lg:text-[44px]  text-[#252525] dark:text-[#FAFAFA] leading-tight">
             {headingTitle}
             </h2>
 
           {/* Right Column - Section Description */}
           <div className="flex items-center">
-            <p className="text-lg md:text-[20PX] text-[#252525] font-medium text-right dark:text-[#FAFAFA] leading-relaxed">
+            <p className="text-lg md:text-[24PX] text-[#252525]  text-right dark:text-[#FAFAFA] leading-relaxed">
               {sectionSubtitle}
             </p>
           </div>
@@ -102,13 +105,13 @@ export function ValuesSection({
         </div>
 
         {/* Values Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {values.map((value, index) => {
             const IconComponent = getIcon(value.iconName)
             return (
-              <div key={index} className="space-y-6 p-9 bg-[#FBFBFB] dark:bg-[#2A2A2A] rounded-4xl">
+              <div key={index} className="space-y-4 p-9 bg-[#FBFBFB] dark:bg-[#2A2A2A] rounded-4xl">
                 {/* Icon */}
-                <div className="w-14 h-14 rounded-full border border-[#2525255f] dark:border-[#fafafa28] mb-24 flex items-center justify-center">
+                <div className="w-14 h-14 rounded-full border border-[#2525255f] dark:border-[#fafafa28] mb-18 flex items-center justify-center">
                   <IconComponent
                     className="w-6 h-6 text-[#252525] dark:text-[#FAFAFA]"
                     
@@ -116,12 +119,12 @@ export function ValuesSection({
                 </div>
 
                 {/* Title */}
-                <h3 className="text-2xl md:text-3xl font-bold text-[#252525] dark:text-[#FAFAFA]">
+                <h3 className="text-2xl md:text-3xl  text-[#252525] font-medium dark:text-[#FAFAFA]">
                   {value.title}
                 </h3>
 
                 {/* Description */}
-                <p className="text-xl font-medium text-[#252525] dark:text-[#FAFAFA] leading-relaxed">
+                <p className="text-xl  text-[#252525] dark:text-[#FAFAFA] leading-relaxed">
                   {value.description}
                 </p>
               </div>

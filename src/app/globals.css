@@ -217,6 +217,27 @@
     animation: sheetTransition 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
+  /* Product card animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fadeIn {
+    animation: fadeIn 0.3s ease-out;
+  }
+
+  /* Custom smooth easing for text movements */
+  .smooth-text-movement {
+    transition: transform ease-in-out duration-500 cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
   /* Theme transition overlay animation */
   @keyframes themeTransitionOverlay {
     0% {
@@ -262,4 +283,60 @@
   .cta-button:hover .cta-ring {
     stroke-dashoffset: 0;
   }
+}
+
+/* Custom list marker styles */
+.custom-list-marker li::marker {
+  color: #252525;
+  opacity: 0.3;
+}
+
+.dark .custom-list-marker li::marker {
+  color: #fafafa;
+  opacity: 0.6;
+}
+
+/* Blog content styles */
+.blog-content h2 {
+  font-size: 28px;
+  font-weight: 400;
+  color: #252525;
+  margin-bottom: 16px;
+ 
+  line-height: 1.3;
+}
+
+.dark .blog-content h2 {
+  color: #fafafa;
+}
+
+.blog-content p {
+  font-size: 20px;
+  line-height: 1.7;
+  color: #252525;
+  margin-bottom: 50px;
+
+}
+
+.dark .blog-content p {
+  color: #fafafa;
+}
+
+/* Gallery scroll transition animation */
+@keyframes slideIn {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+.animate-slideIn {
+  animation: slideIn 0.5s ease-in-out forwards;
+}
+
+/* Smooth scroll transition for gallery */
+.gallery-transition {
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
