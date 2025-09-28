@@ -53,8 +53,8 @@ export default function ProductSpecifications({
                   <Image
                     src={productImage.src}
                     alt={productImage.alt}
-                    width={600}
-                    height={400}
+                    width={800}
+                    height={600}
                     className="w-[100%] h-full object-cover"
                   />
                 </div>

@@ -9,6 +9,7 @@ export function GallerySection() {
   const [activeImage, setActiveImage] = useState(0);
   const [hoveredThumbnail, setHoveredThumbnail] = useState<number | null>(null);
   const [direction, setDirection] = useState(0);
+  const [animationDuration] = useState(0.6);
 
   const handleImageChange = (newIndex: number) => {
     if (newIndex === activeImage) return;

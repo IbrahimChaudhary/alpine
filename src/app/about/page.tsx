@@ -30,7 +30,7 @@ export default function AboutPage() {
     {
       iconName: "Leaf",
       title: "Sustainability",
-      description: "Thoughtful design that's better for the planet.",
+      description: "Thoughtful design that&apos;s better for the planet.",
     },
   ];
 
