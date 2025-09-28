@@ -54,7 +54,7 @@ export default function PrivacyPage() {
 
             <ul className="list-disc ml-8 space-y-6 custom-list-marker text-[24px] leading-tight">
               <li><strong>Account</strong> means a unique account created for You to access our Service or parts of our Service.</li>
-              <li><strong>Company</strong> (referred to as either "the Company", "We", "Us" or "Our" in this Agreement) refers to Example Site.</li>
+              <li><strong>Company</strong> (referred to as either &quot;the Company&quot;, &quot;We&quot;, &quot;Us&quot; or &quot;Our&quot; in this Agreement) refers to Example Site.</li>
               <li><strong>Cookies</strong> are small files that are placed on Your computer, mobile device or any other device by a website, containing the details of Your browsing history on that website among its many uses.</li>
               <li><strong>Country</strong> refers to: California, United States</li>
               <li><strong>Device</strong> means any device that can access the Service such as a computer, a cellphone or a digital tablet.</li>
@@ -88,7 +88,7 @@ export default function PrivacyPage() {
               Usage Data is collected automatically when using the Service.
             </p>
             <p className="text-[24px] leading-tight mb-6">
-              Usage Data may include information such as Your Device's Internet Protocol address
+              Usage Data may include information such as Your Device&apos;s Internet Protocol address
               (e.g. IP address), browser type, browser version, the pages of our Service that You visit,
               the time and date of Your visit, the time spent on those pages, unique device identifiers
               and other diagnostic data.
@@ -121,7 +121,7 @@ export default function PrivacyPage() {
 
           {/* Children's Privacy */}
           <section>
-            <h2 className="text-2xl font-bold mb-6">Children's Privacy</h2>
+            <h2 className="text-2xl font-bold mb-6">Children&apos;s Privacy</h2>
             <p className="text-[24px] leading-tight">
               Our Service does not address anyone under the age of 13. We do not knowingly collect
               personally identifiable information from anyone under the age of 13. If You are a parent

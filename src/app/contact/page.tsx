@@ -80,7 +80,7 @@ export default function ContactPage() {
                 Write us
               </h2>
               <p className="text-xl text-[#252525] dark:text-[#FAFAFA]">
-                We'd love to hear from you!
+                We&apos;d love to hear from you!
               </p>
             </div>
 

@@ -28,7 +28,7 @@ export function AboutHero() {
 
             {/* Description */}
             <p className="text-lg md:text-xl text-[#252525] dark:text-[#FAFAFA] font-medium leading-relaxed max-w-lg">
-              At Sonic, we're redefining how you experience audio—merging premium sound quality with sleek, durable design. Built for everyday moments and extraordinary adventures, our speakers are crafted to deliver deep, immersive sound wherever life takes you.
+              At Sonic, we&apos;re redefining how you experience audio—merging premium sound quality with sleek, durable design. Built for everyday moments and extraordinary adventures, our speakers are crafted to deliver deep, immersive sound wherever life takes you.
             </p>
           </div>
 

@@ -61,7 +61,7 @@ export const SplitText = ({
     letters.map((_, i) => ({
       from: animationFrom,
       to: inView
-        ? async (next: any) => {
+        ? async (next: (props: object) => Promise<void>) => {
           await next(animationTo);
           animatedCount.current += 1;
           if (animatedCount.current === letters.length && onLetterAnimationComplete) {

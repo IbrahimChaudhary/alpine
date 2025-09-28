@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { Twitter, Instagram, X, TwitterIcon } from "lucide-react"
+import { Instagram, TwitterIcon } from "lucide-react"
 
 /**
  * Footer Component

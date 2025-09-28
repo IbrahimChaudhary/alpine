@@ -31,7 +31,7 @@ export function AnimatedButton({
   disabled?: boolean;
   style?: React.CSSProperties;
   containerClassName?: string;
-  [key: string]: any;
+  [key: string]: unknown;
 }) {
   const [isHovered, setIsHovered] = useState(false)
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 })

@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { ChevronRight, AudioLines } from "lucide-react";
 import { AnimatedButton } from "./animated-button"; // Adjust import path as needed
 
