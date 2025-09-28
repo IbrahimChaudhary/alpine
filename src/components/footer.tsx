@@ -25,95 +25,104 @@ export function Footer() {
   ]
 
   return (
-    <footer className="relative bg-[#1b1e22] dark:bg-[#DDE0E4] border-t border-border py-16 overflow-hidden">
-     
+    <footer className="relative bg-[#1b1e22] dark:bg-[#DDE0E4] border-t border-border py-12 sm:py-16 md:py-20 overflow-hidden">
 
       {/* Footer Content */}
-      <div className="  max-w-7xl  px-4 sm:px-6 ">
-        <div className="grid grid-cols-1 md:grid-cols-2">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+
+        {/* Main Footer Content */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mb-12 sm:mb-16">
+
           {/* Brand Section */}
-         
-           
-            <Link href="/" className="text-3xl flex  gap-4 font-bold text-white dark:text-[#252525] mb-4 ">
-              ALPINE <span className="text-[#24272e] dark:text-[#c2ccd8] font-light text-xl mt-1"> | </span> <span className="text-[20px] font-medium mt-2"> The Perfect Sound, Anywhere </span>
+          <div className="space-y-6">
+            <Link href="/" className="block">
+              <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
+                <span className="text-2xl sm:text-3xl font-bold text-white dark:text-[#252525]">
+                  ALPINE
+                </span>
+                <hr className="w-full border-white/10 dark:border-[#252525]/10 md:hidden" />
+                <span className="text-[#24272e] dark:text-[#c2ccd8] font-light text-lg hidden sm:block">
+                  |
+                </span>
+                <span className="text-[20px] font-medium text-white dark:text-[#252525]">
+                  The Perfect Sound, Anywhere
+                </span>
+              </div>
             </Link>
-          
-          
-
- 
-        <div className="flex gap-36 w-full">
-          {/* Company Links */}
-          <div>
-            <h3 className="text-[20px] font-semibold text-white dark:text-[#252525]  mb-3">
-              Company
-            </h3>
-            <ul className=" space-y-2">
-              {companyLinks.map((link) => (
-                <li key={link.name}>
-                  <Link
-                    href={link.href}
-                    className=" text-white dark:text-[#252525] hover:opacity-80 transition-colors duration-200"
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
           </div>
 
+          {/* Links Section */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 lg:gap-16">
+            {/* Company Links */}
+            <div>
+              <h3 className="text-[20px] sm:text-xl  text-white dark:text-[#252525] md:mb-4 mb-2">
+                Company
+              </h3>
+              <ul className="md:space-y-3 space-y-2">
+                {companyLinks.map((link) => (
+                  <li key={link.name}>
+                    <Link
+                      href={link.href}
+                      className="text-white dark:text-[#252525] hover:opacity-80 transition-colors duration-200 text-[16px] sm:text-base"
+                    >
+                      {link.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-          {/* Legal Links */}
-          <div>
-            <h3 className="text-[20px] dark:text-[#252525] font-semibold text-white mb-3">
-              Legal
-            </h3>
-            <ul className="space-y-2">
-              {legalLinks.map((link) => (
-                <li key={link.name}>
-                  <Link
-                    href={link.href}
-                    className="text-white dark:text-[#252525] hover:opacity-80 transition-colors duration-200"
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            {/* Legal Links */}
+            <div>
+              <h3 className="text-[20px] sm:text-xl  text-white dark:text-[#252525] md:mb-4 mb-2">
+                Legal
+              </h3>
+              <ul className="md:space-y-3 space-y-2">
+                {legalLinks.map((link) => (
+                  <li key={link.name}>
+                    <Link
+                      href={link.href}
+                      className="text-white dark:text-[#252525] hover:opacity-80 transition-colors duration-200 text-[16px] sm:text-base"
+                    >
+                      {link.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
-        </div>
 
-        
-           {/* Large Background Text */}
-        <div className=" flex items-center justify-center pointer-events-none">
-        <div className="text-[20rem] md:text-[20rem]  opacity-60 font-bold text-muted-foreground/60 dark:text-muted-foreground/75 select-none leading-none">
-          ALPINE
+        {/* Large Background Text */}
+        <div className="flex items-center justify-center pointer-events-none mb-8 sm:mb-12">
+          <div className="text-[5rem] sm:text-[12rem] md:text-[16rem] lg:text-[20rem] opacity-40 sm:opacity-60 font-bold text-muted-foreground/60 dark:text-muted-foreground/75 select-none leading-none">
+            ALPINE
+          </div>
         </div>
-      </div>
 
         {/* Bottom Section */}
-        <div className="flex flex-col md:flex-row justify-between items-center pt-8 ">
+        <div className="flex flex-col sm:flex-row justify-between md:items-center pt-6 sm:pt-8 border-t border-white/10 dark:border-[#252525]/10 gap-4 sm:gap-0">
           {/* Copyright */}
-          <p className="text-[20px] text-white dark:text-[#252525] opacity-70 text-sm mb-4 md:mb-0">
+          <p className="text-white dark:text-[#252525] opacity-70 text-[20px] sm:text-base text-left">
             © 2025. All rights reserved. ALPINE
           </p>
 
           {/* Social Links */}
-          <div className="flex items-center space-x-6">
-            <span className="text-[16px] text-white dark:text-[#252525] opacity-70 text-sm">
+          <div className="flex flex-row items-center gap-4 sm:gap-6">
+            <span className="text-white dark:text-[#252525] opacity-70 text-[16px]">
               @Shadcnblocks.com
             </span>
             <div className="flex space-x-4">
               <Link
                 href="#"
-                className="text-white dark:text-[#252525] opacity-70 hover:text-foreground transition-colors duration-200"
+                className="text-white dark:text-[#252525] opacity-70 hover:opacity-100 transition-opacity duration-200"
                 aria-label="Twitter"
               >
                 <TwitterIcon className="h-5 w-5" />
               </Link>
               <Link
                 href="#"
-                className="text-white dark:text-[#252525] opacity-70 hover:text-foreground transition-colors duration-200"
+                className="text-white dark:text-[#252525] opacity-70 hover:opacity-100 transition-opacity duration-200"
                 aria-label="Instagram"
               >
                 <Instagram className="h-5 w-5" />

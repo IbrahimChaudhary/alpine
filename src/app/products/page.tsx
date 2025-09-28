@@ -27,7 +27,7 @@ export default function ProductsPage() {
       {/* Testimonials Section */}
       <TestimonialsSection />
       
-      <div className="max-w-7xl mx-auto px-8 pt-26 pb-12">
+      <div className="max-w-7xl mx-auto px-4 md:px-8 pt-12  md:pt-20 lg:pt-26 pb-8  md:pb-12">
         <ProductPerformance />
       </div>
 

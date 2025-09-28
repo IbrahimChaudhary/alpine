@@ -1,10 +1,11 @@
 "use client"
 
 import Link from "next/link"
-import { ChevronRight, Menu } from "lucide-react"
+import Image from "next/image"
+import { ChevronRight, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { ThemeToggle } from "@/components/theme-toggle"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 /**
  * Navigation Item Interface
@@ -37,6 +38,20 @@ export function Navbar() {
 
   // Mobile menu state
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+
+  // Disable body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = 'unset'
+    }
+
+    // Cleanup on unmount
+    return () => {
+      document.body.style.overflow = 'unset'
+    }
+  }, [isMobileMenuOpen])
 
   return (
     <nav className=" w-full mt-3 ">
@@ -84,46 +99,78 @@ export function Navbar() {
               <ChevronRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
             </Button>
 
-            {/* Mobile Menu Button */}
-            <Button
-              variant="ghost"
-              size="icon"
-              className="md:hidden"
+            {/* Mobile Menu Button with 2-line hamburger */}
+            <button
+              className="md:hidden relative w-8 h-8 flex flex-col justify-center items-center space-y-1.5 z-50"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               aria-label="Toggle mobile menu"
             >
-              <Menu className="h-5 w-5" />
-            </Button>
+              <span
+                className={`w-6 h-0.5 bg-[#575757] dark:bg-white transition-all duration-300 ${
+                  isMobileMenuOpen ? 'rotate-45 translate-y-1' : ''
+                }`}
+              />
+              <span
+                className={`w-6 h-0.5 bg-[#575757] dark:bg-white transition-all duration-300 ${
+                  isMobileMenuOpen ? '-rotate-45 -translate-y-1' : ''
+                }`}
+              />
+            </button>
           </div>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile Menu Overlay */}
         {isMobileMenuOpen && (
-          <div className="md:hidden border-t border-border">
-            <div className="px-2 pt-2 pb-3 space-y-1 bg-background">
-              {navItems.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className="block px-3 py-2 text-base font-medium transition-all duration-200 hover:opacity-60 dark:text-white"
-                  style={{
-                    color: '#575757',
-                    fontSize: '16px'
-                  }}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  {item.name}
-                </Link>
-              ))}
-              {/* Mobile CTA Button */}
-              <div className="pt-2">
-                <Button
-                  variant="outline"
-                  className="w-full flex items-center justify-center gap-2 px-6 py-3 rounded-full border-2 border-gray-300 text-[#575757] text-[16px] font-medium hover:text-gray-800 transition-all duration-200 group"
-                >
-                  Buy now
-                  <ChevronRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
-                </Button>
+          <div className="fixed inset-0 z-40 md:hidden">
+            {/* Background overlay */}
+            <div
+              className="fixed inset-0 bg-black/50 backdrop-blur-sm"
+              onClick={() => setIsMobileMenuOpen(false)}
+            />
+
+            {/* Mobile Menu Panel - slides from right */}
+            <div
+              className={`fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-[#1a1a1a] shadow-2xl transform transition-transform duration-300 ease-out ${
+                isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
+              }`}
+            >
+          
+
+              {/* Menu content with grid layout */}
+              <div className="flex h-full">
+                {/* Left side - Navigation */}
+                <div className="flex flex-col h-full pt-20 pb-8 px-8 flex-1">
+                  {/* Navigation links */}
+                  <nav className="flex-1 space-y-8">
+                    {navItems.map((item, index) => (
+                      <Link
+                        key={item.name}
+                        href={item.href}
+                        className="block text-2xl font-light text-white/80 hover:text-white transition-colors duration-200"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        style={{
+                          animationDelay: `${index * 100}ms`,
+                        }}
+                      >
+                        {item.name}
+                      </Link>
+                    ))}
+                  </nav>
+
+                  {/* Bottom CTA Button */}
+                  <div className="mt-auto pt-8">
+                    <Button
+                      variant="secondary"
+                      className="w-full flex items-center justify-center gap-2 bg-white text-black px-6 py-4 rounded-full text-lg font-medium hover:bg-gray-100 transition-all duration-200 group"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      Buy now
+                      <ChevronRight className="h-5 w-5 transition-transform duration-200 group-hover:translate-x-1" />
+                    </Button>
+                  </div>
+                </div>
+
+             
               </div>
             </div>
           </div>

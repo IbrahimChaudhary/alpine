@@ -1,12 +1,24 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Paperclip  } from "lucide-react";
 
 export default function BlogPage() {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const blogPosts = [
     {
@@ -63,31 +75,31 @@ export default function BlogPage() {
 
   return (
     <div className="min-h-screen">
-      <div className="max-w-7xl mx-auto px-8 py-26 pb-32">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-12 sm:py-16 md:py-20 lg:py-26 pb-16 sm:pb-24 md:pb-32">
 
         {/* Header Section */}
-        <div className="text-center mb-16">
+        <div className="md:text-center mb-8 sm:mb-12 md:mb-16">
           {/* Badge */}
-          <div className="flex border-[0.5px] border-[#2525252f] dark:border-[#fafafa4b] rounded-full px-4 py-2 w-fit mx-auto items-center justify-center gap-2 mb-8">
-            <Paperclip  className="w-5 h-5 text-[#252525] dark:text-[#fafafa]" />
-            <span className="text-[20px] text-[#252525] dark:text-[#fafafa]">
+          <div className="flex border-[0.5px] border-[#2525252f] dark:border-[#fafafa4b] rounded-full px-3 sm:px-4 py-2 w-fit md:mx-auto items-center justify-center gap-2 mb-6 sm:mb-8">
+            <Paperclip className="w-4 h-4 sm:w-5 sm:h-5 text-[#252525] dark:text-[#fafafa]" />
+            <span className="text-lg sm:text-[20px] text-[#252525] dark:text-[#fafafa]">
               Blog
             </span>
           </div>
 
           {/* Main Title */}
-          <h1 className="text-4xl md:text-[44px] text-[#252525] dark:text-[#fafafa] mb-6">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-[44px] text-[#252525] dark:text-[#fafafa] mb-4 sm:mb-6">
             Sound Insights
           </h1>
 
           {/* Description */}
-          <p className="text-[20px] text-[#252525] dark:text-[#fafafa] leading-tight  mx-auto">
+          <p className="text-lg sm:text-xl lg:text-[20px] text-[#252525] dark:text-[#fafafa] leading-relaxed max-w-4xl mx-auto">
             Stay updated with the latest trends in audio technology, speaker innovations, and expert tips to enhance your listening experience.
           </p>
         </div>
 
         {/* Blog Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-10">
           {blogPosts.map((post, index) => (
             <Link
               key={post.id}
@@ -96,14 +108,14 @@ export default function BlogPage() {
               onMouseEnter={() => setHoveredCard(index)}
               onMouseLeave={() => setHoveredCard(null)}
             >
-              <article className={`transition-all duration-500 ease-out rounded-3xl overflow-hidden ${
-                (hoveredCard === null && index === defaultActiveCard) || hoveredCard === index
+              <article className={`transition-all duration-500 ease-out rounded-2xl sm:rounded-3xl overflow-hidden ${
+                isMobile || (hoveredCard === null && index === defaultActiveCard) || hoveredCard === index
                   ? 'bg-[#fafafa] dark:bg-[#2a2a2a]'
                   : 'bg-transparent'
               }`}>
 
                 {/* Image */}
-                <div className="relative h-[320px] overflow-hidden rounded-3xl">
+                <div className="relative h-[250px] sm:h-[280px] md:h-[320px] overflow-hidden rounded-2xl sm:rounded-3xl">
                   <Image
                     src={post.image}
                     alt={post.title}
@@ -114,10 +126,10 @@ export default function BlogPage() {
                 </div>
 
                 {/* Content */}
-                <div className={`p-6 transition-all duration-500 ease-out ${
-                  hoveredCard === index
+                <div className={`p-4 sm:p-6 transition-all duration-500 ease-out ${
+                  !isMobile && hoveredCard === index
                     ? 'transform translate-x-2'
-                    : hoveredCard !== null && (
+                    : !isMobile && hoveredCard !== null && (
                         index === hoveredCard - 1 ||
                         index === hoveredCard + 1
                       )
@@ -126,16 +138,16 @@ export default function BlogPage() {
                 }`}>
 
                   {/* Title */}
-                  <h2 className="text-[24px] text-[#252525] dark:text-[#fafafa] mb-1 line-clamp-2">
+                  <h2 className="text-xl sm:text-[22px] md:text-[24px] text-[#252525] dark:text-[#fafafa] mb-1 line-clamp-2">
                     {post.title}
                   </h2>
 
                   {/* Date */}
-                  <p className="text-[#252525] text-[16px] dark:text-[#fafafa] opacity-70 mb-4">
+                  <p className="text-[#252525] text-sm sm:text-[16px] dark:text-[#fafafa] opacity-70 mb-4">
                     {post.date}
                   </p>
 
-                 
+
                 </div>
 
               </article>

@@ -70,38 +70,38 @@ export function GallerySection() {
   };
 
   return (
-    <section className="py-24 px-8">
+    <section className="py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 md:px-8">
       <div className="max-w-7xl mx-auto">
 
         {/* Header Section */}
-        <div className="mb-12">
+        <div className="mb-8 sm:mb-10 md:mb-12">
           {/* Badge */}
-          <div className="flex border-[0.5px] border-[#2525252f] dark:border-[#fafafa4b] rounded-full px-4 py-2 w-fit items-center justify-center gap-2 mb-8">
-            <MessageSquare className="w-5 h-5 text-[#252525] dark:text-[#fafafa]" />
-            <span className="text-[20px] text-[#252525] dark:text-[#fafafa]">
+          <div className="flex border-[0.5px] border-[#2525252f] dark:border-[#fafafa4b] rounded-full px-4 py-2 w-fit items-center justify-center gap-2 mb-6 sm:mb-8">
+            <MessageSquare className="w-4 h-4 sm:w-5 sm:h-5 text-[#252525] dark:text-[#fafafa]" />
+            <span className="text-base sm:text-lg md:text-[20px] text-[#252525] dark:text-[#fafafa]">
               In reality
             </span>
           </div>
 
-          <div className="grid grid-cols-2 justify-between items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 justify-between items-start lg:items-center">
             {/* Main Title */}
-            <h2 className="text-4xl md:text-[44px] text-[#252525] dark:text-[#fafafa]">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[44px] text-[#252525] dark:text-[#fafafa] leading-tight">
               Timeless Elegance
             </h2>
 
             {/* Description */}
-            <p className="text-[20px] text-[#252525] text-right dark:text-[#fafafa] leading-tight">
+            <p className="text-[20px] text-[#252525] lg:text-right dark:text-[#fafafa] leading-tight">
               Enhance your space with a perfect blend of modern design and warm ambiance. Our speaker brings style and sophistication
             </p>
           </div>
         </div>
 
         {/* Gallery Layout */}
-        <div className="relative h-[600px]">
+        <div className="relative h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px]">
 
           {/* Main Image Container */}
-          <div className="relative w-full h-full rounded-3xl overflow-hidden bg-gray-100 dark:bg-gray-800">
-            
+          <div className="relative w-full h-full rounded-2xl sm:rounded-3xl overflow-hidden bg-gray-100 dark:bg-gray-800">
+
             {/* Animated Images */}
             <AnimatePresence initial={false} custom={direction}>
               <motion.div
@@ -129,18 +129,13 @@ export function GallerySection() {
             </AnimatePresence>
 
             {/* Thumbnail Overlay */}
-            <div className="absolute left-6 top-1/2 transform -translate-y-1/2 flex flex-col gap-3 z-20">
-              
+            <div className="absolute left-3 sm:left-4 md:left-6 top-1/2 transform -translate-y-1/2 flex flex-col gap-2 sm:gap-3 z-20">
+
               {/* Animated Ring that follows hover */}
               <motion.div
-                className="absolute ring-1 p-3 ring-white shadow-lg pointer-events-none"
-                style={{
-                  width: '60px',
-                  height: '40px',
-                  borderRadius: '50px',
-                }}
+                className="absolute ring-1 p-2 sm:p-3 ring-white shadow-lg pointer-events-none w-[50px] h-[35px] sm:w-[60px] sm:h-[40px] rounded-[50px]"
                 animate={{
-                  y: (hoveredThumbnail !== null ? hoveredThumbnail : activeImage) * 52, // 40px height + 3px gap = 43px
+                  y: (hoveredThumbnail !== null ? hoveredThumbnail : activeImage) * 45, // Responsive spacing
                 }}
                 transition={{
                   type: "spring",
@@ -153,19 +148,14 @@ export function GallerySection() {
               {galleryImages.map((image, index) => (
                 <motion.div
                   key={image.id}
-                  className="relative cursor-pointer overflow-hidden"
-                  style={{
-                    width: '60px',
-                    height: '40px',
-                    borderRadius: '50px',
-                  }}
-                  whileHover={{ 
+                  className="relative cursor-pointer overflow-hidden w-[50px] h-[35px] sm:w-[60px] sm:h-[40px] rounded-[50px]"
+                  whileHover={{
                     scale: 1,
                     transition: { duration: 0.2 }
                   }}
                   whileTap={{ scale: 0.95 }}
                   animate={{
-                    scale: hoveredThumbnail === index ? 1.25 : 
+                    scale: hoveredThumbnail === index ? 1.2 :
                            hoveredThumbnail !== null ? 1.1 : 1.0
                   }}
                   transition={{ duration: 0.3, ease: "easeOut" }}
@@ -179,19 +169,18 @@ export function GallerySection() {
                     fill
                     className="object-cover"
                   />
-                  
+
                   {/* Active indicator overlay - only show on actual active image */}
                   {activeImage === index && hoveredThumbnail === null && (
-                    <motion.div 
-                      className="absolute inset-0 bg-white/10 backdrop-blur-[1px]"
-                      style={{ borderRadius: '50px' }}
+                    <motion.div
+                      className="absolute inset-0 bg-white/10 backdrop-blur-[1px] rounded-[50px]"
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       transition={{ duration: 0.3 }}
                     />
                   )}
-                  
-              
+
+
                 </motion.div>
               ))}
             </div>

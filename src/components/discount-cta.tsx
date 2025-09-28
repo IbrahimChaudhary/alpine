@@ -27,7 +27,7 @@ export function DiscountCta() {
           {/* Left Column - Main Content */}
           <div className="space-y-8">
             {/* Main Heading */}
-            <h1 className="text-4xl md:text-5xl lg:text-[60px] font-bold text-[#252525] dark:text-[#FAFAFA] leading-tight">
+            <h1 className="text-[44px] lg:text-[60px] font-bold text-[#252525] dark:text-[#FAFAFA] leading-tight">
               Get your perfect{" "}
               <br className="hidden sm:block" />
               speaker now!
@@ -48,12 +48,12 @@ export function DiscountCta() {
           {/* Right Column - Secondary Content */}
           <div className="space-y-6">
             {/* Secondary Heading */}
-            <h2 className="text-2xl md:text-3xl lg:text-[28px] font-bold text-[#252525] dark:text-[#FAFAFA]">
+            <h2 className="text-[28px] font-bold text-[#252525] dark:text-[#FAFAFA]">
               Bring every room together
             </h2>
 
             {/* Description */}
-            <p className="text-lg md:text-[19px] text-[#252525] dark:text-[#FAFAFA] leading-relaxed">
+            <p className="text-[20px] text-[#252525] dark:text-[#FAFAFA] leading-relaxed">
               Experience our latest portable speaker innovation, delivering exceptional sound quality,
               a comfortable design, and sleek design.
             </p>
