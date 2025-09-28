@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { ChevronRight,AudioLines ,Smartphone   } from "lucide-react";
+import { AnimatedButton } from "./animated-button";
 
 export function SpeakerFeatures() {
   return (
@@ -28,10 +29,12 @@ export function SpeakerFeatures() {
             </p>
 
             {/* CTA Button */}
-            <button className="bg-[#252525] text-[16px] dark:bg-[#fafafa] text-[#fafafa] dark:text-[#252525] px-6 py-4 rounded-full font-medium transition-all duration-300 ease-in-out hover:opacity-80 flex items-center gap-2 group">
+            <AnimatedButton
+            
+            className="bg-[#252525] text-[16px] dark:bg-[#fafafa] text-[#fafafa] dark:text-[#252525] px-6 py-4 rounded-full font-medium  flex items-center gap-2 group">
               Buy now
               <ChevronRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
-            </button>
+            </AnimatedButton>
           </div>
 
           {/* Right Image */}
@@ -81,10 +84,12 @@ export function SpeakerFeatures() {
             </p>
 
             {/* CTA Button */}
-            <button className="bg-[#252525] text-[16px] dark:bg-[#fafafa] text-[#fafafa] dark:text-[#252525] px-6 py-4 rounded-full font-medium transition-all duration-300 ease-in-out hover:opacity-80 flex items-center gap-2 group">
-              Get more
+            <AnimatedButton
+            
+            className="bg-[#252525] text-[16px] dark:bg-[#fafafa] text-[#fafafa] dark:text-[#252525] px-6 py-4 rounded-full font-medium  flex items-center gap-2 group">
+              Buy now
               <ChevronRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
-            </button>
+            </AnimatedButton>
           </div>
         </div>
 

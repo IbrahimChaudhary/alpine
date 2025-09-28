@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { ChevronRight, DollarSign } from "lucide-react";
 import { DiscountCta } from "@/components/discount-cta";
+import { AnimatedButton } from "@/components/animated-button"; // Adjust import path as needed
 
 export default function ProductsPage() {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
@@ -119,13 +120,17 @@ export default function ProductsPage() {
                         }`}
                       />
 
-                      {/* Buy Now Button Overlay */}
+                      {/* Buy Now Button Overlay with Animation */}
                       {((hoveredCard === null && index === centerCardIndex) || hoveredCard === index) && (
                         <div className="absolute bottom-4 left-4 right-4 animate-fadeIn">
-                          <button className="w-full bg-[#252525] dark:bg-[#fafafa] text-[#fafafa] dark:text-[#252525] py-4 px-8 rounded-full font-medium transition-all duration-300 ease-in-out hover:opacity-80 flex items-center justify-center gap-2 group/btn">
+                          <AnimatedButton
+                            
+                            className="w-full bg-[#252525] dark:bg-[#fafafa] text-[#fafafa] dark:text-[#252525] py-4 px-8 rounded-full font-medium transition-all duration-300 ease-in-out flex items-center justify-center gap-2 group"
+                            containerClassName="w-full"
+                          >
                             Buy now
-                            <ChevronRight className="w-4 h-4 transition-transform duration-200 group-hover/btn:translate-x-1" />
-                          </button>
+                            <ChevronRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
+                          </AnimatedButton>
                         </div>
                       )}
                     </div>
