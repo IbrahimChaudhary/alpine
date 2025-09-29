@@ -3,8 +3,9 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { ChevronRight, DollarSign } from "lucide-react";
-import { DiscountCta } from "@/components/discount-cta";
-import { AnimatedButton } from "@/components/animated-button"; // Adjust import path as needed
+import { DiscountCta } from "@/components/sections/discount-cta";
+import { AnimatedButton } from "@/components/ui/animated-button";
+import { products } from "@/data/products";
 
 export default function ProductsPage() {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
@@ -20,33 +21,6 @@ export default function ProductsPage() {
 
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
-
-  const products = [
-    {
-      id: 0,
-      name: "Sonic Light",
-      description: "Premium Smart Soundbar",
-      price: "$599",
-      originalPrice: "$699",
-      image: "/product-1.webp",
-    },
-    {
-      id: 1,
-      name: "Sonic Light",
-      description: "Premium Smart Soundbar",
-      price: "$599",
-      originalPrice: "$699",
-      image: "/product-2.webp",
-    },
-    {
-      id: 2,
-      name: "Sonic Light",
-      description: "Premium Smart Soundbar",
-      price: "$599",
-      originalPrice: "$699",
-      image: "/product-3.webp",
-    }
-  ];
 
   const centerCardIndex = 1;
 

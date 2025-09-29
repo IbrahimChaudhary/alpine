@@ -2,7 +2,7 @@
 
 import {  useRef, useEffect, useState } from "react";
 import Image from "next/image";
-import { AnimatedButton } from "./animated-button";
+import { AnimatedButton } from "@/components/ui/animated-button";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ChevronRight } from "lucide-react";
 

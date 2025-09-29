@@ -135,7 +135,7 @@ export function GallerySection() {
               <motion.div
                 className="absolute ring-1 p-2 sm:p-3 ring-white shadow-lg pointer-events-none w-[50px] h-[35px] sm:w-[60px] sm:h-[40px] rounded-[50px]"
                 animate={{
-                  y: (hoveredThumbnail !== null ? hoveredThumbnail : activeImage) * 45, // Responsive spacing
+                  y: (hoveredThumbnail !== null ? hoveredThumbnail : activeImage) * 52, // Responsive spacing
                 }}
                 transition={{
                   type: "spring",

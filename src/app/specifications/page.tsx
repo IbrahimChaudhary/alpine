@@ -1,4 +1,4 @@
-import SonicSpecificationsExample from "@/components/sonic-specifications-example";
+import SonicSpecificationsExample from "@/components/sections/sonic-specifications-example";
 
 export default function SpecificationsPage() {
   return (

@@ -14,9 +14,9 @@ import Image from "next/image"
  */
 export function AboutHero() {
   return (
-    <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 md:px-8">
+    <section className="py-12 sm:py-16 px-4 sm:px-6 md:px-8">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 md:gap-16 lg:gap-28 mt-8 sm:mt-12">
+        <div className="grid grid-cols-1 md:items-center lg:grid-cols-2 gap-8 sm:gap-12  lg:gap-28 mt-8 ">
           {/* Left Column - Content */}
           <div className="space-y-6 sm:space-y-8 ">
             {/* Main Heading */}

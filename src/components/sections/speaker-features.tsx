@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { ChevronRight,AudioLines ,Smartphone   } from "lucide-react";
-import { AnimatedButton } from "./animated-button";
+import { AnimatedButton } from "@/components/ui/animated-button";
 
 export function SpeakerFeatures() {
   return (

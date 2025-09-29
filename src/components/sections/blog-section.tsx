@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Paperclip } from "lucide-react";
+import { blogPosts } from "@/data/blog";
 
 export function BlogSection() {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
@@ -20,34 +21,13 @@ export function BlogSection() {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  const blogPosts = [
-    {
-      id: 1,
-      slug: "evolution-of-speakers",
-      title: "The Evolution of Speakers",
-      date: "Apr 1, 2025",
-      image: "/blog-1.webp",
-    },
-    {
-      id: 2,
-      slug: "right-speaker-for-you",
-      title: "Right Speaker for You",
-      date: "Mar 2, 2025",
-      image: "/blog-2.webp",
-    },
-    {
-      id: 3,
-      slug: "wireless-speakers",
-      title: "Wireless Speakers",
-      date: "Mar 1, 2025",
-      image: "/blog-3.webp",
-    },
-  ];
+  // Use only the first 3 blog posts for the section
+  const displayedPosts = blogPosts.slice(0, 3);
 
   const defaultActiveCard = 1; // Second card (index 1) is active by default
 
   return (
-    <section className="px-4 sm:px-6 md:px-8 pb-12 sm:pb-16 md:pb-18 md:py-0 py-12">
+    <section className="px-4 sm:px-6 md:px-8 pb-12 sm:pb-16 md:pb-18 md:py-10 py-12">
       <div className="max-w-7xl mx-auto">
 
         {/* Header Section */}
@@ -75,7 +55,7 @@ export function BlogSection() {
 
         {/* Blog Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-10">
-          {blogPosts.map((post, index) => (
+          {displayedPosts.map((post, index) => (
             <Link
               key={post.id}
               href={`/blog/${post.slug}`}

@@ -3,7 +3,8 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Paperclip  } from "lucide-react";
+import { Paperclip } from "lucide-react";
+import { blogPosts } from "@/data/blog";
 
 export default function BlogPage() {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
@@ -19,57 +20,6 @@ export default function BlogPage() {
 
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
-
-  const blogPosts = [
-    {
-      id: 1,
-      slug: "evolution-of-speakers",
-      title: "The Evolution of Speakers",
-      date: "Apr 1, 2025",
-      image: "/blog-1.webp",
-      excerpt: "Discover how speaker technology has advanced from vintage designs to modern innovations.",
-    },
-    {
-      id: 2,
-      slug: "right-speaker-for-you",
-      title: "Right Speaker for You",
-      date: "Mar 2, 2025",
-      image: "/blog-2.webp",
-      excerpt: "Learn how to choose the perfect speaker for your space and listening preferences.",
-    },
-    {
-      id: 3,
-      slug: "wireless-speakers",
-      title: "Wireless Speakers",
-      date: "Mar 1, 2025",
-      image: "/blog-3.webp",
-      excerpt: "Explore the benefits and innovations in wireless speaker technology.",
-    },
-    {
-      id: 4,
-      slug: "dolby-atmos-and-beyond",
-      title: "Dolby Atmos and Beyond",
-      date: "Feb 2, 2025",
-      image: "/blog-4.webp",
-      excerpt: "Experience immersive 3D audio technology that transforms your listening experience.",
-    },
-    {
-      id: 5,
-      slug: "eco-friendly-audio-solutions",
-      title: "Eco-Friendly Audio Solutions",
-      date: "Feb 1, 2025",
-      image: "/blog-5.webp",
-      excerpt: "Sustainable audio products that deliver great sound while protecting the environment.",
-    },
-    {
-      id: 6,
-      slug: "why-size-and-shape-matter",
-      title: "Why Size and Shape Matter",
-      date: "Feb 1, 2025",
-      image: "/blog-6.webp",
-      excerpt: "Understanding how speaker design affects sound quality and room acoustics.",
-    },
-  ];
 
   const defaultActiveCard = 1; // Second card (index 1) is active by default
 

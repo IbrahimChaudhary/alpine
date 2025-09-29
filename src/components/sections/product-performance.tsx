@@ -1,31 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import {   AudioLines} from "lucide-react";
+import { AudioLines } from "lucide-react";
+import { performanceFeatures } from "@/data/features";
 
 export function ProductPerformance() {
-  const features = [
-    {
-      number: "01",
-      title: "Powerful Sound",
-      description: "Enjoy rich bass and clear highs for a truly immersive audio experience."
-    },
-    {
-      number: "02",
-      title: "Wireless Freedom",
-      description: "Instant Bluetooth connection for smooth, hassle-free playback."
-    },
-    {
-      number: "03",
-      title: "Long Battery Life",
-      description: "Get up to 20 hours of nonstop playtime on a single charge."
-    },
-    {
-      number: "04",
-      title: "Compact & Portable",
-      description: "Sleek, lightweight design—perfect for music on the go."
-    }
-  ];
 
   return (
     <section className="py-12 sm:py-16 md:py-20 lg:py-24 px-2 sm:px-4 md:px-6">
@@ -67,7 +46,7 @@ export function ProductPerformance() {
               <div className="absolute left-1/2 top-0 bottom-0 w-px bg-[#25252523] dark:bg-[#fafafa18] hidden md:block"></div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-                {features.map((feature, index) => (
+                {performanceFeatures.map((feature, index) => (
                   <div
                     key={index}
                     className={`space-y-3 ${

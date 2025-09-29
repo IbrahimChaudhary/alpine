@@ -1,7 +1,7 @@
 "use client"
 
 import { ChevronRight } from "lucide-react"
-import { AnimatedButton } from "./animated-button"
+import { AnimatedButton } from "@/components/ui/animated-button"
 
 /**
  * Hero Section Component

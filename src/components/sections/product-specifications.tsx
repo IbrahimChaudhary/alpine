@@ -1,27 +1,14 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { FileText } from "lucide-react";
+import { FileText, LucideIcon, Zap, Lightbulb, Radio, Ruler, Scale } from "lucide-react";
 import Image from "next/image";
-
-interface SpecificationItem {
-  label: string;
-  value: string;
-  icon?: React.ReactNode;
-}
-
-interface SpecificationSection {
-  title: string;
-  items: SpecificationItem[];
-}
+import { SpecificationSection, ProductImage } from "@/types";
 
 interface ProductSpecificationsProps {
   title?: string;
   subtitle?: string;
-  productImage?: {
-    src: string;
-    alt: string;
-  };
+  productImage?: ProductImage;
   specifications: SpecificationSection[];
   className?: string;
 }
@@ -33,6 +20,19 @@ export default function ProductSpecifications({
   specifications,
   className,
 }: ProductSpecificationsProps) {
+  // Icon mapping
+  const iconMap: Record<string, LucideIcon> = {
+    Zap,
+    Lightbulb,
+    Radio,
+    Ruler,
+    Scale,
+  };
+
+  // Helper function to get icon component
+  const getIcon = (iconName: string): LucideIcon => {
+    return iconMap[iconName] || FileText;
+  };
   return (
     <section className={cn("py-8 md:py-20 px-4 sm:px-6 md:px-8 mt-8 md:mt-18 text-[#252525] dark:text-white", className)}>
       <div className="max-w-7xl mx-auto">
@@ -73,14 +73,14 @@ export default function ProductSpecifications({
                     alt={productImage.alt}
                     width={800}
                     height={600}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-contain"
                   />
                 </div>
               )}
             </div>
 
             {/* Right Side - Subtitle and Specifications */}
-            <div className="w-full lg:w-[45%] space-y-6 sm:space-y-8">
+            <div className="w-full  space-y-6 sm:space-y-8">
               {/* Desktop Subtitle */}
               <div className="hidden lg:block">
                 <p className="text-lg sm:text-xl lg:text-[20px] text-[#252525] dark:text-[#fafafa] leading-relaxed lg:text-right">
@@ -108,7 +108,10 @@ export default function ProductSpecifications({
                           <div className="flex items-center gap-3 flex-1">
                             {item.icon && (
                               <span className="w-5 h-5 sm:w-6 sm:h-6 text-[#252525] dark:text-[#fafafa] flex-shrink-0">
-                                {item.icon}
+                                {(() => {
+                                  const IconComponent = getIcon(item.icon);
+                                  return <IconComponent className="w-5 h-5 sm:w-6 sm:h-6" />;
+                                })()}
                               </span>
                             )}
                             <span className="text-[#252525] dark:text-[#fafafa]">{item.label}</span>

@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { Package } from "lucide-react";
-import { SplitText } from "./ui/split-text";
+import { SplitText } from "@/components/ui/split-text";
 
 export function ProvenSection() {
   return (

@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { ChevronRight, AudioLines } from "lucide-react";
-import { AnimatedButton } from "./animated-button"; // Adjust import path as needed
+import { AnimatedButton } from "@/components/ui/animated-button";
 
 export function BigSoundSection() {
   const handleBuyNowClick = () => {

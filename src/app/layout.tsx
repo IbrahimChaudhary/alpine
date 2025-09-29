@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { ThemeProvider } from "@/components/theme-provider";
-import { Navbar } from "@/components/navbar";
-import { ThemeTransition } from "@/components/theme-transition";
-import { Footer } from "@/components/footer";
+import { ThemeProvider } from "@/components/ui/theme-provider";
+import { Navbar } from "@/components/layout/navbar";
+import { ThemeTransition } from "@/components/ui/theme-transition";
+import { Footer } from "@/components/layout/footer";
+import { Toaster } from "sonner";
 
 /**
  * Font Configuration
@@ -67,6 +68,14 @@ export default function RootLayout({
 
           {/* Theme Transition Overlay */}
           <ThemeTransition />
+
+          {/* Toast Notifications */}
+          <Toaster
+            position="top-right"
+            expand={true}
+            richColors={true}
+            closeButton={true}
+          />
         </ThemeProvider>
       </body>
     </html>

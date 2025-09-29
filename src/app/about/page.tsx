@@ -1,8 +1,8 @@
-import { AboutHero } from "@/components/about-hero";
-import { ValuesSection } from "@/components/values-section";
-import { MissionVision } from "@/components/mission-vision";
-import { DiscountCta } from "@/components/discount-cta";
-import { BlogSection } from "@/components/blog-section";
+import { AboutHero } from "@/components/sections/about-hero";
+import { ValuesSection } from "@/components/sections/values-section";
+import { MissionVision } from "@/components/sections/mission-vision";
+import { DiscountCta } from "@/components/sections/discount-cta";
+import { BlogSection } from "@/components/sections/blog-section";
 
 /**
  * About Page Component
