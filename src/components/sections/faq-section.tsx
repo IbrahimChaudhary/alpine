@@ -38,39 +38,39 @@ export function FAQSection() {
   ];
 
   return (
-    <section className="py-14 px-8 ">
+    <section className="py-10 sm:py-12 md:py-14 px-4 sm:px-6 md:px-8">
       <div className="max-w-7xl mx-auto">
-        <div className="grid lg:grid-cols-2 gap-8 items-start">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
           {/* Left Column - Header */}
-          <div className="space-y-8">
+          <div className="space-y-2 sm:space-y-8">
             {/* Badge */}
-            <div className="flex items-center gap-3 text-[#252525] dark:text-[#fafafa] w-fit   py-3">
+            <div className="flex items-center gap-3 text-[#252525] dark:text-[#fafafa] w-fit py-3">
               <span className="text-[28px]">Welcome to Beyond FAQ!</span>
             </div>
 
             {/* Main Heading */}
-            <div className="space-y-6">
-              <h2 className="text-4xl md:text-5xl text-[#252525] dark:text-white leading-tight">
-                Everything You Need to Know About Our <br /> Speakers
+            <div className="space-y-2 sm:space-y-6">
+              <h2 className="text-[24px] lg:text-5xl text-[#252525] dark:text-white leading-tight">
+                Everything You Need to Know About Our <span className="inline">Speakers</span>
               </h2>
             </div>
           </div>
 
           {/* Right Column - FAQ Accordion */}
-          <div className="space-y-4">
-            <div className="min-h-[500px]">
+          <div className="space-y-4 mt-8 lg:mt-0">
+            <div className="min-h-[400px] sm:min-h-[500px]">
               <Accordion type="single" collapsible={false} defaultValue="item-1" className="w-full">
               {faqs.map((faq) => (
                 <AccordionItem
                   key={faq.id}
                   value={faq.id}
-                  className="border-b  border-[#ecedef] dark:border-gray-700/50"
+                  className="border-b border-[#ecedef] dark:border-gray-700/50"
                 >
-                  <AccordionTrigger className="text-left text-[28px] font-light w-full  text-[#252525] dark:text-[#fafafa] hover:text-[#252525]/80 dark:hover:text-[#fafafa]/80 py-8 [&[data-state=open]>svg]:rotate-180 hover:no-underline">
+                  <AccordionTrigger className="lg:text-[28px] text-[24px] font-light w-full text-[#252525] dark:text-[#fafafa] hover:text-[#252525]/80 dark:hover:text-[#fafafa]/80 py-4 sm:py-6 md:py-8 [&[data-state=open]>svg]:rotate-180 hover:no-underline">
                     {faq.question}
                   </AccordionTrigger>
-                  <AccordionContent className="text-[#252525] dark:text-[#fafafa] pb-6 text-[16px] leading-relaxed">
-                    <div className="max-w-none">
+                  <AccordionContent className="text-[#252525] dark:text-[#fafafa] pb-4 sm:pb-6 text-[16px] leading-relaxed">
+                    <div className="max-w-none pr-4">
                       {faq.answer}
                     </div>
                   </AccordionContent>

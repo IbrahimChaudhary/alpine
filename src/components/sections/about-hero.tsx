@@ -14,34 +14,34 @@ import Image from "next/image"
  */
 export function AboutHero() {
   return (
-    <section className="py-20 px-4 sm:px-6 ">
+    <section className="py-12 sm:py-16 px-4 sm:px-6 md:px-8">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-28 mt-12">
+        <div className="grid grid-cols-1 md:items-center lg:grid-cols-2 gap-8 sm:gap-12  lg:gap-28 mt-8 ">
           {/* Left Column - Content */}
-          <div className="space-y-8">
+          <div className="space-y-6 sm:space-y-8 ">
             {/* Main Heading */}
-            <h1 className="text-4xl md:text-5xl lg:text-[60px] font-bold text-[#252525] dark:text-[#FAFAFA] leading-tight">
+            <h1 className="text-[44px] md:text-5xl lg:text-[60px] font-bold text-[#252525] dark:text-[#FAFAFA] leading-tight">
               Sound Designed{" "}
-              <br className="hidden sm:block" />
+              <br className="" />
               for Life
             </h1>
 
             {/* Description */}
-            <p className="text-lg md:text-xl text-[#252525] dark:text-[#FAFAFA] font-medium leading-relaxed max-w-lg">
+            <p className="text-xl text-[#252525] dark:text-[#FAFAFA]  leading-relaxed max-w-lg">
               At Sonic, we&apos;re redefining how you experience audio—merging premium sound quality with sleek, durable design. Built for everyday moments and extraordinary adventures, our speakers are crafted to deliver deep, immersive sound wherever life takes you.
             </p>
           </div>
 
           {/* Right Column - Image */}
-          <div>
-            {/* Optional: Add your actual image here */}
-            <Image
-              src="/about-hero-1.png"
-              alt="ALPINE Premium Speaker"
-              width={100}
-              height={400}
-              className="w-[90%] h-[90%] object-cover"
-            />
+          <div className="relative ">
+            <div className="relative h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] w-full">
+              <Image
+                src="/about-hero-1.png"
+                alt="ALPINE Premium Speaker"
+                fill
+                className="object-contain"
+              />
+            </div>
           </div>
         </div>
       </div>

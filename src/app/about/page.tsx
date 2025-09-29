@@ -1,7 +1,8 @@
-import { AboutHero } from "@/components/about-hero";
-import { ValuesSection } from "@/components/values-section";
-import { MissionVision } from "@/components/mission-vision";
-import { DiscountCta } from "@/components/discount-cta";
+import { AboutHero } from "@/components/sections/about-hero";
+import { ValuesSection } from "@/components/sections/values-section";
+import { MissionVision } from "@/components/sections/mission-vision";
+import { DiscountCta } from "@/components/sections/discount-cta";
+import { BlogSection } from "@/components/sections/blog-section";
 
 /**
  * About Page Component
@@ -53,7 +54,7 @@ export default function AboutPage() {
 
       {/* Why Sonic Section */}
       <section
-        className="py-36 px-4 sm:px-6  relative bg-cover bg-center bg-no-repeat"
+        className="py-20 sm:py-24 md:py-32 lg:py-36 px-4 sm:px-6 md:px-8 relative bg-cover bg-center bg-no-repeat"
         style={{
           backgroundImage: 'url("/about-3.webp")',
           backgroundColor: "#1a1a1a",
@@ -63,16 +64,16 @@ export default function AboutPage() {
         <div className="absolute inset-0 bg-black/30"></div>
 
         <div className="max-w-7xl mx-auto relative z-10">
-          <div className=" gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             {/* Left Column - Content */}
-            <div className="space-y-8">
+            <div className="space-y-6 sm:space-y-8 text-left">
               {/* Main Heading */}
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
+              <h2 className="text-[44px] text-6xl font-bold text-[#fafafa] leading-tight">
                 Why Sonic?
               </h2>
 
               {/* Description */}
-              <p className="text-lg md:text-xl text-white leading-relaxed max-w-2xl">
+              <p className="text-xl text-white leading-relaxed max-w-2xl mx-0">
                 Every Sonic speaker is engineered for real life—compact yet
                 bold, tough yet refined. Whether you&apos;re deep in a busy city or
                 off the grid, Sonic delivers consistent, high-quality audio in a
@@ -81,10 +82,10 @@ export default function AboutPage() {
 
               {/* CTA Button */}
               <div className="pt-4">
-                <button className="bg-white text-black px-8 py-5 rounded-full text-lg  hover:bg-gray-100 transition-colors duration-200 flex items-center gap-2 group">
+                <button className="bg-white text-black px-6 sm:px-8 py-4 sm:py-5 rounded-full  text-lg hover:bg-gray-100 transition-colors duration-200 flex items-center gap-2 group mx-0">
                   Buy now
                   <svg
-                    className="w-5 h-5 transition-all duration-200 group-hover:translate-x-1"
+                    className="w-4 h-4 sm:w-5 sm:h-5 transition-all duration-200 group-hover:translate-x-1"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -107,6 +108,8 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+      <BlogSection/>
 
       {/* Discount CTA Section */}
       <DiscountCta />

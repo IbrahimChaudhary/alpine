@@ -1,11 +1,11 @@
-import { HeroSection } from "@/components/hero-section";
-import { DiscountCta } from "@/components/discount-cta";
-import { ValuesSection } from "@/components/values-section";
-import { FAQSection } from "@/components/faq-section";
-import { SpeakerFeatures } from "@/components/speaker-features";
-import { InnovationSection } from "@/components/innovation-section";
-import { BlogSection } from "@/components/blog-section";
-import { GallerySection } from "@/components/gallery-section";
+import { HeroSection } from "@/components/sections/hero-section";
+import { DiscountCta } from "@/components/sections/discount-cta";
+import { ValuesSection } from "@/components/sections/values-section";
+import { FAQSection } from "@/components/sections/faq-section";
+import { SpeakerFeatures } from "@/components/sections/speaker-features";
+import { InnovationSection } from "@/components/sections/innovation-section";
+import { BlogSection } from "@/components/sections/blog-section";
+import { GallerySection } from "@/components/sections/gallery-section";
 
 /**
  * Home Page Component

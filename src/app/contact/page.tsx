@@ -4,6 +4,9 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Lightbulb, MessageSquare , Phone } from 'lucide-react';
+import { useState } from 'react';
+import { toast } from 'sonner';
+import confetti from 'canvas-confetti';
 
 
 /**
@@ -17,8 +20,86 @@ import { Lightbulb, MessageSquare , Phone } from 'lucide-react';
  * - Professional design matching the overall site aesthetic
  */
 export default function ContactPage() {
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    message: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const triggerConfetti = () => {
+    const duration = 3000;
+    const animationEnd = Date.now() + duration;
+    const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
+
+    function randomInRange(min: number, max: number) {
+      return Math.random() * (max - min) + min;
+    }
+
+    const interval: NodeJS.Timeout = setInterval(function() {
+      const timeLeft = animationEnd - Date.now();
+
+      if (timeLeft <= 0) {
+        return clearInterval(interval);
+      }
+
+      const particleCount = 50 * (timeLeft / duration);
+      confetti({
+        ...defaults,
+        particleCount,
+        origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 }
+      });
+      confetti({
+        ...defaults,
+        particleCount,
+        origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 }
+      });
+    }, 250);
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      // Simulate form submission delay
+      await new Promise(resolve => setTimeout(resolve, 1500));
+
+      // Trigger success effects
+      triggerConfetti();
+      toast.success('Message sent successfully!', {
+        description: 'Thank you for contacting us. We\'ll get back to you soon!',
+        duration: 5000,
+      });
+
+      // Reset form
+      setFormData({
+        firstName: '',
+        lastName: '',
+        email: '',
+        message: ''
+      });
+    } catch (error) {
+      toast.error('Failed to send message', {
+        description: 'Please try again or contact us directly.',
+        duration: 5000,
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
-    <div className="min-h-screen py-32 px-4 sm:px-6 ">
+    <div className="min-h-screen md:py-32 py-12 px-4 sm:px-6 ">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           {/* Left Column - Contact Information */}
@@ -85,7 +166,7 @@ export default function ContactPage() {
             </div>
 
             {/* Contact Form */}
-            <form className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6">
               {/* Name Fields Row */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="space-y-2">
@@ -99,6 +180,8 @@ export default function ContactPage() {
                     id="firstName"
                     name="firstName"
                     type="text"
+                    value={formData.firstName}
+                    onChange={handleInputChange}
                     required
                     className="w-full px-3 py-6 border-[0.5px] border-gray-300 dark:border-[#fafafa24] rounded-md bg-white dark:bg-[#333333] text-[#252525] dark:text-[#FAFAFA] placeholder:opacity-60 placeholder-gray-500 dark:placeholder-[#fafafa37] focus:outline-none focus:ring-2 focus:ring-[#252525] dark:focus:ring-[#FAFAFA] focus:border-transparent"
                     placeholder="Jane"
@@ -115,6 +198,8 @@ export default function ContactPage() {
                     id="lastName"
                     name="lastName"
                     type="text"
+                    value={formData.lastName}
+                    onChange={handleInputChange}
                     required
                     className="w-full px-3 py-6 border-[0.5px] border-gray-300 dark:border-[#fafafa24] rounded-md bg-white dark:bg-[#333333] text-[#252525] dark:text-[#FAFAFA] placeholder-gray-500 placeholder:opacity-60 dark:placeholder-[#fafafa37] focus:outline-none focus:ring-2 focus:ring-[#252525] dark:focus:ring-[#FAFAFA] focus:border-transparent"
                     placeholder="Smith"
@@ -134,6 +219,8 @@ export default function ContactPage() {
                   id="email"
                   name="email"
                   type="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
                   required
                   className="w-full px-4 py-5 border-[0.5px] border-gray-300 dark:border-[#fafafa24] rounded-md bg-white dark:bg-[#333333] text-[#252525] dark:text-[#FAFAFA] placeholder-gray-500 placeholder:opacity-60 dark:placeholder-[#fafafa37] focus:outline-none focus:ring-2 focus:ring-[#252525] dark:focus:ring-[#FAFAFA] focus:border-transparent"
                   placeholder="example@gmail.com"
@@ -152,6 +239,8 @@ export default function ContactPage() {
                   id="message"
                   name="message"
                   rows={5}
+                  value={formData.message}
+                  onChange={handleInputChange}
                   required
                   className="w-full px-4 py-3 border-[0.5px] border-gray-300 dark:border-[#fafafa24] rounded-md bg-white dark:bg-[#333333] text-[#252525] dark:text-[#FAFAFA] placeholder-gray-500 placeholder:opacity-60 dark:placeholder-[#fafafa37] focus:outline-none focus:ring-2 focus:ring-[#252525] dark:focus:ring-[#FAFAFA] focus:border-transparent resize-vertical min-h-32"
                   placeholder="Type something..."
@@ -163,9 +252,10 @@ export default function ContactPage() {
                 <Button
                   type="submit"
                   size="lg"
-                  className="w-full bg-[#252525] dark:bg-[#FAFAFA] text-white dark:text-[#252525] hover:bg-[#252525]/90 dark:hover:bg-[#FAFAFA]/90 px-8 py-7 rounded-full text-[16px] font-medium transition-all duration-200"
+                  disabled={isSubmitting}
+                  className="w-full bg-[#252525] dark:bg-[#FAFAFA] text-white dark:text-[#252525] hover:bg-[#252525]/90 dark:hover:bg-[#FAFAFA]/90 px-8 py-7 rounded-full text-[16px] font-medium transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  Submit
+                  {isSubmitting ? 'Sending...' : 'Submit'}
                 </Button>
               </div>
             </form>

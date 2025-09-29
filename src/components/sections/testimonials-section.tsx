@@ -44,7 +44,7 @@ export function TestimonialsSection() {
   ];
 
   return (
-    <section className="pt-20 px-8">
+    <section className="pt-10 lg:pt-20 px-4 lg:px-8">
       <div className="max-w-7xl mx-auto">
 
         {/* Badge */}
@@ -55,18 +55,18 @@ export function TestimonialsSection() {
           </span>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 sm:gap-16 items-center">
 
           {/* Left side - Main heading */}
-          <h2 className="text-4xl md:text-[44px] text-[#252525] dark:text-[#fafafa] leading-tight">
-            What Our Customers
-            <br />
-            Are Saying
+          <h2 className="text-[24px] md:text-[44px] text-[#252525] dark:text-[#fafafa] leading-tight">
+            What Our Customers 
+            <br className="hidden lg:block"/>
+               Are Saying
           </h2>
 
           {/* Right side - Description */}
           <div className="flex items-center">
-            <p className="text-[20px] text-[#252525] dark:text-[#fafafa] leading-relaxed text-right">
+            <p className="text-[20px] text-[#252525] dark:text-[#fafafa] leading-relaxed lg:text-right">
               From music lovers to daily users, everyone&apos;s talking about Sonic. See what they have to say.
             </p>
           </div>
@@ -74,7 +74,7 @@ export function TestimonialsSection() {
         </div>
 
         {/* Testimonials Masonry Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mt-16">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mt-8 lg:mt-16">
           {testimonials.map((testimonial) => (
             <div
               key={testimonial.id}
