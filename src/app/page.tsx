@@ -6,6 +6,7 @@ import { SpeakerFeatures } from "@/components/sections/speaker-features";
 import { InnovationSection } from "@/components/sections/innovation-section";
 import { BlogSection } from "@/components/sections/blog-section";
 import { GallerySection } from "@/components/sections/gallery-section";
+import { AlpineV0Menu } from "@/components/AlpineV0Menu";
 
 /**
  * Home Page Component
@@ -36,7 +37,10 @@ export default function Home() {
   ];
 
   return (
-    <div>
+    <div className="relative">
+      {/* V0 Menu - Choose individual components to edit */}
+      <AlpineV0Menu />
+
       {/* Hero Section */}
       <HeroSection />
 

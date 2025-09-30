@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "big-sound-section",
+  "type": "registry:block",
+  "title": "Big Sound Section",
+  "description": "Audio feature showcase",
+  "dependencies": [
+    "react",
+    "lucide-react"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "components/sections/big-sound-section.tsx",
+      "content": "\"use client\";\n\nimport { AudioLines, ChevronRight } from \"lucide-react\";\n\nexport function BigSoundSection() {\n  return (\n    <section className=\"py-16 px-4 sm:px-6\">\n      <div className=\"max-w-7xl mx-auto\">\n        <div className=\"grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center\">\n          <div className=\"space-y-6\">\n            <div className=\"flex items-center gap-3\">\n              <AudioLines className=\"w-6 h-6\" />\n              <span className=\"text-lg\">Big Sound, Wherever You Are</span>\n            </div>\n\n            <h2 className=\"text-3xl md:text-4xl font-semibold\">\n              Enjoy crisp highs and full-bodied audio that travels with you.\n            </h2>\n\n            <p className=\"text-lg text-gray-700 dark:text-gray-300\">\n              Crafted to deliver stunning sound quality—at home, outdoors, or anywhere in between.\n            </p>\n\n            <button className=\"inline-flex items-center gap-2 bg-black dark:bg-white text-white dark:text-black px-6 py-4 rounded-full font-medium\">\n              Buy now\n              <ChevronRight className=\"w-5 h-5\" />\n            </button>\n          </div>\n\n          <div className=\"bg-gray-200 dark:bg-gray-700 rounded-3xl h-96 lg:h-[500px] flex items-center justify-center\">\n            <div className=\"text-6xl\">🎵</div>\n          </div>\n        </div>\n      </div>\n    </section>\n  );\n}",
+      "type": "registry:component",
+      "target": "components/sections/big-sound-section.tsx"
+    }
+  ],
+  "tailwind": {
+    "config": {
+      "theme": {
+        "extend": {}
+      }
+    }
+  },
+  "meta": {
+    "description": "Audio feature showcase",
+    "source": "http://localhost:3000/r/big-sound-section.json"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "proven-section",
+  "type": "registry:block",
+  "title": "Proven Section",
+  "description": "Product showcase section",
+  "dependencies": [
+    "react",
+    "lucide-react"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "components/sections/proven-section.tsx",
+      "content": "\"use client\";\n\nimport { Package } from \"lucide-react\";\n\nexport function ProvenSection() {\n  return (\n    <section className=\"py-16 md:py-20 px-4 sm:px-6\">\n      <div className=\"max-w-7xl mx-auto\">\n        <div className=\"space-y-8 mb-12\">\n          <div className=\"flex items-center gap-3 border rounded-full px-4 py-3 w-fit\">\n            <Package className=\"w-5 h-5\" />\n            <span className=\"text-lg\">Product</span>\n          </div>\n\n          <div className=\"grid grid-cols-1 lg:grid-cols-2 gap-8\">\n            <h2 className=\"text-3xl md:text-4xl lg:text-5xl font-semibold\">\n              Proven by People,\n              <br />\n              Designed to Perform\n            </h2>\n            <p className=\"text-lg text-gray-700 dark:text-gray-300 lg:text-right\">\n              Backed by a global community of users, our speakers combine cutting-edge tech with sleek design—made to stand out.\n            </p>\n          </div>\n        </div>\n\n        <div className=\"grid grid-cols-1 md:grid-cols-2 gap-6\">\n          <div className=\"bg-gray-200 dark:bg-gray-700 rounded-3xl h-96 flex items-center justify-center\">\n            <div className=\"text-6xl\">🔊</div>\n          </div>\n          <div className=\"bg-gray-50 dark:bg-gray-800 rounded-3xl h-96 flex items-center justify-center\">\n            <h3 className=\"text-6xl font-medium tracking-widest\">ALPINE</h3>\n          </div>\n        </div>\n      </div>\n    </section>\n  );\n}",
+      "type": "registry:component",
+      "target": "components/sections/proven-section.tsx"
+    }
+  ],
+  "tailwind": {
+    "config": {
+      "theme": {
+        "extend": {}
+      }
+    }
+  },
+  "meta": {
+    "description": "Product showcase section",
+    "source": "http://localhost:3000/r/proven-section.json"
+  }
+}

@@ -6,6 +6,7 @@ import { ChevronRight, DollarSign } from "lucide-react";
 import { DiscountCta } from "@/components/sections/discount-cta";
 import { AnimatedButton } from "@/components/ui/animated-button";
 import { products } from "@/data/products";
+import { AlpineV0Menu } from "@/components/AlpineV0Menu";
 
 export default function ProductsPage() {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
@@ -47,6 +48,9 @@ export default function ProductsPage() {
 
   return (
     <div className="min-h-screen ">
+      {/* V0 Menu Button */}
+      <AlpineV0Menu page="pricing" />
+
       {/* Header Section */}
       <section className="pt-12 sm:pt-16 md:pt-20 lg:pt-26 pb-8 sm:pb-12 md:pb-16 px-4 sm:px-6 md:px-8">
         <div className="max-w-7xl mx-auto">

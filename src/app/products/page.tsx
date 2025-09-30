@@ -7,6 +7,7 @@ import { BigSoundSection } from "@/components/sections/big-sound-section";
 import { ProvenSection } from "@/components/sections/proven-section";
 import { TestimonialsSection } from "@/components/sections/testimonials-section";
 import { DiscountCta } from "@/components/sections/discount-cta";
+import { AlpineV0Menu } from "@/components/AlpineV0Menu";
 
 
 export default function ProductsPage() {
@@ -14,6 +15,8 @@ export default function ProductsPage() {
 
   return (
     <div className="min-h-screen">
+      {/* V0 Menu Button */}
+      <AlpineV0Menu page="products" />
 
       {/* Products Hero Section */}
       <ProductsHeroSection />

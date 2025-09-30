@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Paperclip } from "lucide-react";
 import { blogPosts } from "@/data/blog";
+import { AlpineV0Menu } from "@/components/AlpineV0Menu";
 
 export default function BlogPage() {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
@@ -25,6 +26,9 @@ export default function BlogPage() {
 
   return (
     <div className="min-h-screen">
+      {/* V0 Menu Button */}
+      <AlpineV0Menu page="blog" />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-12 sm:py-16 md:py-20 lg:py-26 pb-16 sm:pb-24 md:pb-32">
 
         {/* Header Section */}

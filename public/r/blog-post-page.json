@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "blog-post-page",
+  "type": "registry:block",
+  "title": "Blog Post Page",
+  "description": "Individual blog post detail page",
+  "dependencies": [
+    "react",
+    "lucide-react"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "components/sections/blog-post-page.tsx",
+      "content": "\"use client\";\n\nimport { ChevronLeft } from \"lucide-react\";\n\nexport function BlogPostPage() {\n  const post = {\n    title: \"The Evolution of Speakers\",\n    excerpt: \"Discover how speaker technology has advanced from vintage designs to modern innovations.\",\n    date: \"Apr 1, 2025\",\n    content: `\n      <h2>The Early Days of Speakers</h2>\n      <p>The first speakers were developed in the late 1800s, with the invention of the telephone and phonograph. These early devices used basic electromagnetic technology to convert electrical signals into audible sound.</p>\n\n      <h2>The Rise of Stereo Sound</h2>\n      <p>In the mid-20th century, stereo sound revolutionized the audio industry. With two or more channels of sound, listeners could experience a richer, more immersive audio experience.</p>\n\n      <h2>The Digital Revolution</h2>\n      <p>The advent of digital technology in the late 20th century brought about compact disc players, MP3s, and eventually, wireless streaming. Speakers became smaller, more efficient, and capable of delivering higher-quality sound.</p>\n\n      <h2>Smart Speakers: The Future of Audio</h2>\n      <p>Today, smart speakers like Amazon Echo, Google Nest, and Apple HomePod dominate the market. These devices not only play music but also act as virtual assistants, controlling smart home devices, answering questions, and even ordering groceries.</p>\n\n      <h2>Conclusion</h2>\n      <p>From simple horn-shaped devices to AI-powered smart speakers, the evolution of audio technology has been nothing short of remarkable. As we look to the future, it's exciting to imagine what new innovations will further enhance our listening experiences.</p>\n    `\n  };\n\n  return (\n    <div className=\"min-h-screen\">\n      <div className=\"max-w-4xl mx-auto px-4 sm:px-6 py-16\">\n        <button className=\"inline-flex items-center gap-2 border rounded-full px-4 py-2 mb-8 hover:opacity-80\">\n          <ChevronLeft className=\"w-5 h-5\" />\n          <span className=\"text-lg\">Back</span>\n        </button>\n\n        <div className=\"mb-10\">\n          <h1 className=\"text-3xl md:text-4xl lg:text-5xl font-semibold mb-6\">\n            {post.title}\n          </h1>\n          <p className=\"text-lg text-gray-700 dark:text-gray-300 mb-8\">\n            {post.excerpt}\n          </p>\n        </div>\n\n        <div className=\"bg-gray-200 dark:bg-gray-700 rounded-2xl h-96 mb-6 flex items-center justify-center\">\n          <div className=\"text-6xl\">📝</div>\n        </div>\n\n        <div className=\"text-gray-600 dark:text-gray-400 mb-10\">\n          {post.date}\n        </div>\n\n        <div\n          className=\"prose prose-lg max-w-none\n          [&>h2]:text-2xl [&>h2]:font-semibold [&>h2]:mb-4 [&>h2]:mt-8\n          [&>p]:text-base [&>p]:leading-relaxed [&>p]:mb-6\"\n          dangerouslySetInnerHTML={{ __html: post.content }}\n        />\n      </div>\n    </div>\n  );\n}",
+      "type": "registry:component",
+      "target": "components/sections/blog-post-page.tsx"
+    }
+  ],
+  "tailwind": {
+    "config": {
+      "theme": {
+        "extend": {}
+      }
+    }
+  },
+  "meta": {
+    "description": "Individual blog post detail page",
+    "source": "http://localhost:3000/r/blog-post-page.json"
+  }
+}

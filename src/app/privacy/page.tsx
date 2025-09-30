@@ -1,8 +1,12 @@
 import { Calendar } from "lucide-react";
+import { AlpineV0Menu } from "@/components/AlpineV0Menu";
 
 export default function PrivacyPage() {
   return (
     <div className="min-h-screen">
+      {/* V0 Menu Button */}
+      <AlpineV0Menu page="privacy" />
+
       <div className="max-w-4xl mx-auto px-8 py-26 pb-32">
 
         {/* Header Section */}

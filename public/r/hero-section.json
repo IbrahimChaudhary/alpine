@@ -1,0 +1,35 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "hero-section",
+  "type": "registry:block",
+  "title": "Hero Section",
+  "description": "Main hero section with heading, description, and CTA button",
+  "dependencies": [
+    "react",
+    "lucide-react",
+    "framer-motion"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [
+    "button"
+  ],
+  "files": [
+    {
+      "path": "components/sections/hero-section.tsx",
+      "content": "\"use client\";\r\n\r\nimport {  useRef, useEffect, useState } from \"react\";\r\nimport Image from \"next/image\";\r\nimport { AnimatedButton } from \"../ui/animated-button\";\r\nimport { motion, useScroll, useTransform } from \"framer-motion\";\r\nimport { ChevronRight } from \"lucide-react\";\r\n\r\nexport function HeroSection() {\r\n  const containerRef = useRef<HTMLDivElement>(null);\r\n  const [isMobile, setIsMobile] = useState(false);\r\n  \r\n  const { scrollYProgress } = useScroll({\r\n    target: containerRef,\r\n    offset: [\"start start\", \"end start\"]\r\n  });\r\n\r\n  // Check if screen is mobile on mount and resize\r\n  useEffect(() => {\r\n    const checkIsMobile = () => {\r\n      setIsMobile(window.innerWidth < 768); // md breakpoint\r\n    };\r\n    \r\n    checkIsMobile();\r\n    window.addEventListener('resize', checkIsMobile);\r\n    \r\n    return () => window.removeEventListener('resize', checkIsMobile);\r\n  }, []);\r\n\r\n  // Transform values for parallax effect\r\n  const textScale = useTransform(scrollYProgress, [0, 1], [1, 0.5]); // Text shrinks (goes back)\r\n  const textY = useTransform(scrollYProgress, [0, 1], [0, -300]); // Text moves up\r\n  const textOpacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]); // Text fades out\r\n\r\n  const imageY = useTransform(scrollYProgress, [0, 1], [0, isMobile ? 200 : 400]); // Image moves down - 200px on mobile, 400px on desktop\r\n\r\n  return (\r\n    <section\r\n      ref={containerRef}\r\n      className=\"relative md:min-h-screen flex flex-col items-center justify-center overflow-hidden\"\r\n    >\r\n      {/* Top Text */}\r\n      <motion.div\r\n        style={{\r\n          y: textY,\r\n          opacity: textOpacity,\r\n          scale: textScale,\r\n          transformOrigin: \"center center\"\r\n        }}\r\n        className=\"text-center z-10 px-4 sm:px-8 mt-16 sm:mt-24\"\r\n      >\r\n        <h1 className=\"text-[44px] lg:text-[60px] font-bold text-[#252525] dark:text-[#fafafa] mb-4 sm:mb-6 leading-tight\">\r\n          Immersive Sound, Simplified\r\n        </h1>\r\n        <p className=\"text-[20px] text-[#252525] dark:text-[#fafafa] max-w-3xl mx-auto leading-relaxed mb-6 sm:mb-8 px-4\">\r\n          Our most recent breakthrough in audio devices blends exceptional audio performance with unparalleled toughness and elegance.\r\n        </p>\r\n\r\n        {/* Buy now button */}\r\n        <AnimatedButton\r\n\r\n          className=\"inline-flex items-center gap-1 bg-[#252525] dark:bg-[#fafafa] text-white dark:text-[#252525] px-4 sm:px-6 py-3 sm:py-4 rounded-full text-base sm:text-lg font-medium transition-opacity\"\r\n        >\r\n          Buy now\r\n          <ChevronRight className=\"w-5 h-5 sm:w-6 sm:h-6\" />\r\n        </AnimatedButton>\r\n      </motion.div>\r\n\r\n      {/* Speaker Image Container - this creates the container boundary */}\r\n      <div className=\"relative w-full max-w-6xl z-20 overflow-hidden rounded-2xl sm:rounded-3xl mt-8 sm:mt-24 mx-4\">\r\n        <motion.div\r\n          style={{ y: imageY }}\r\n          className=\"relative w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px]\"\r\n        >\r\n          <Image\r\n            src=\"/main-hero.webp\"\r\n            alt=\"Premium Speaker\"\r\n            fill\r\n            className=\"object-contain\"\r\n            priority\r\n          />\r\n        </motion.div>\r\n      </div>\r\n\r\n    </section>\r\n  );\r\n}",
+      "type": "registry:component",
+      "target": "components/sections/hero-section.tsx"
+    }
+  ],
+  "tailwind": {
+    "config": {
+      "theme": {
+        "extend": {}
+      }
+    }
+  },
+  "meta": {
+    "description": "Main hero section with heading, description, and CTA button",
+    "source": "http://localhost:3000/r/hero-section.json"
+  }
+}
