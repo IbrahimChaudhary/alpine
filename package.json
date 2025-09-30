@@ -3,8 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "build:registry": "node scripts/build-registry.js",
+    "dev": "npm run build:registry && next dev",
+    "build": "npm run build:registry && next build",
     "start": "next start",
     "lint": "eslint"
   },

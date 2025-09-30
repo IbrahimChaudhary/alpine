@@ -3,6 +3,7 @@ import { ValuesSection } from "@/components/sections/values-section";
 import { MissionVision } from "@/components/sections/mission-vision";
 import { DiscountCta } from "@/components/sections/discount-cta";
 import { BlogSection } from "@/components/sections/blog-section";
+import { AlpineV0Menu } from "@/components/AlpineV0Menu";
 
 /**
  * About Page Component
@@ -37,6 +38,9 @@ export default function AboutPage() {
 
   return (
     <div>
+      {/* V0 Menu Button */}
+      <AlpineV0Menu page="about" />
+
       {/* Hero Section */}
       <AboutHero />
 

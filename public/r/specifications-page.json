@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "specifications-page",
+  "type": "registry:block",
+  "title": "Specifications Page",
+  "description": "Product specifications with detailed specs",
+  "dependencies": [
+    "react",
+    "lucide-react"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "components/sections/specifications-section.tsx",
+      "content": "\"use client\";\n\nimport { FileText } from \"lucide-react\";\n\nexport function SpecificationsSection() {\n  const specifications = [\n    {\n      title: \"General\",\n      items: [\n        { label: \"Operating Voltage\", value: \"12V (10 - 15V DC)\" },\n        { label: \"Power Consumption\", value: \"10W (Idle), 30W (Max)\" },\n        { label: \"Frequency Response\", value: \"60 - 20,000 Hz\" },\n        { label: \"Dimensions (WxHxD)\", value: \"180 x 95 x 95 mm\" },\n        { label: \"Weight\", value: \"890 g\" }\n      ]\n    },\n    {\n      title: \"Audio Inputs Outputs\",\n      items: [\n        { label: \"Bluetooth (Wireless Audio)\", value: \"2x\" },\n        { label: \"AUX Input (Stereo Analog)\", value: \"1x\" },\n        { label: \"USB-C (Charging & Data)\", value: \"1x\" }\n      ]\n    },\n    {\n      title: \"Battery Connectivity\",\n      items: [\n        { label: \"Battery Life\", value: \"Up to 12 hours (70% volume)\" },\n        { label: \"Charging Time\", value: \"Approx. 2.5 hours\" },\n        { label: \"Wireless Range\", value: \"Up to 15 meters\" },\n        { label: \"Connectivity\", value: \"Bluetooth, USB-C, AUX\" }\n      ]\n    },\n    {\n      title: \"Environmental\",\n      items: [\n        { label: \"Operating Temperature\", value: \"0° - 45° C (32° - 113° F)\" },\n        { label: \"Storage Temperature\", value: \"-10° - 60° C (14° - 140° F)\" },\n        { label: \"Water Resistance\", value: \"IPX5 Rated (Splash-Proof)\" }\n      ]\n    },\n    {\n      title: \"Certifications\",\n      items: [\n        { label: \"Safety\", value: \"Compliant with IEC/EN 62368-1\" },\n        { label: \"Certificate\", value: \"RoHS & CE Certified\" }\n      ]\n    }\n  ];\n\n  return (\n    <section className=\"py-12 px-4 sm:px-6\">\n      <div className=\"max-w-7xl mx-auto\">\n        <div className=\"space-y-8\">\n          <div className=\"flex items-center gap-3 border rounded-full px-4 py-3 w-fit\">\n            <FileText className=\"w-5 h-5\" />\n            <span className=\"text-lg\">Specifications</span>\n          </div>\n\n          <h2 className=\"text-3xl md:text-4xl font-semibold\">\n            Product Details\n          </h2>\n\n          <p className=\"text-lg text-gray-700 dark:text-gray-300\">\n            Behind every field is smart engineering—dive into the full list of features.\n          </p>\n\n          <div className=\"grid grid-cols-1 lg:grid-cols-2 gap-8\">\n            <div className=\"bg-gray-100 dark:bg-gray-800 rounded-2xl aspect-[4/3] flex items-center justify-center\">\n              <div className=\"text-6xl\">🔊</div>\n            </div>\n\n            <div className=\"space-y-8\">\n              {specifications.map((section, index) => (\n                <div key={index} className=\"bg-gray-50 dark:bg-gray-800 rounded-xl p-4\">\n                  <h3 className=\"text-xl font-semibold mb-4\">\n                    {section.title}\n                  </h3>\n                  <div className=\"space-y-3\">\n                    {section.items.map((item, idx) => (\n                      <div key={idx} className=\"flex justify-between border-b border-gray-200 dark:border-gray-700 pb-2\">\n                        <span className=\"text-gray-700 dark:text-gray-300\">{item.label}</span>\n                        <span className=\"font-medium\">{item.value}</span>\n                      </div>\n                    ))}\n                  </div>\n                </div>\n              ))}\n            </div>\n          </div>\n        </div>\n      </div>\n    </section>\n  );\n}",
+      "type": "registry:component",
+      "target": "components/sections/specifications-section.tsx"
+    }
+  ],
+  "tailwind": {
+    "config": {
+      "theme": {
+        "extend": {}
+      }
+    }
+  },
+  "meta": {
+    "description": "Product specifications with detailed specs",
+    "source": "http://localhost:3000/r/specifications-page.json"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "blog-page",
+  "type": "registry:block",
+  "title": "Blog Page",
+  "description": "Blog listing page with grid layout",
+  "dependencies": [
+    "react",
+    "lucide-react"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "components/sections/blog-page.tsx",
+      "content": "\"use client\";\n\nimport { Paperclip } from \"lucide-react\";\n\nexport function BlogPage() {\n  const blogPosts = [\n    {\n      id: 1,\n      slug: \"evolution-of-speakers\",\n      title: \"The Evolution of Speakers\",\n      date: \"Apr 1, 2025\"\n    },\n    {\n      id: 2,\n      slug: \"right-speaker-for-you\",\n      title: \"Right Speaker for You\",\n      date: \"Mar 2, 2025\"\n    },\n    {\n      id: 3,\n      slug: \"wireless-speakers\",\n      title: \"Wireless Speakers\",\n      date: \"Mar 1, 2025\"\n    },\n    {\n      id: 4,\n      slug: \"dolby-atmos-and-beyond\",\n      title: \"Dolby Atmos and Beyond\",\n      date: \"Feb 2, 2025\"\n    },\n    {\n      id: 5,\n      slug: \"eco-friendly-audio-solutions\",\n      title: \"Eco-Friendly Audio Solutions\",\n      date: \"Feb 1, 2025\"\n    },\n    {\n      id: 6,\n      slug: \"why-size-and-shape-matter\",\n      title: \"Why Size and Shape Matter\",\n      date: \"Feb 1, 2025\"\n    }\n  ];\n\n  return (\n    <div className=\"min-h-screen\">\n      <div className=\"max-w-7xl mx-auto px-4 sm:px-6 py-16\">\n        <div className=\"text-center mb-12\">\n          <div className=\"flex border rounded-full px-4 py-2 w-fit mx-auto items-center gap-2 mb-6\">\n            <Paperclip className=\"w-5 h-5\" />\n            <span className=\"text-lg\">Blog</span>\n          </div>\n\n          <h1 className=\"text-3xl md:text-4xl lg:text-5xl font-semibold mb-4\">\n            Sound Insights\n          </h1>\n\n          <p className=\"text-lg text-gray-700 dark:text-gray-300 max-w-4xl mx-auto\">\n            Stay updated with the latest trends in audio technology, speaker innovations, and expert tips to enhance your listening experience.\n          </p>\n        </div>\n\n        <div className=\"grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8\">\n          {blogPosts.map((post) => (\n            <article key={post.id} className=\"bg-gray-50 dark:bg-gray-800 rounded-3xl overflow-hidden\">\n              <div className=\"bg-gray-200 dark:bg-gray-700 h-64 flex items-center justify-center\">\n                <div className=\"text-6xl\">📝</div>\n              </div>\n\n              <div className=\"p-6\">\n                <h2 className=\"text-xl font-semibold mb-2\">{post.title}</h2>\n                <p className=\"text-gray-600 dark:text-gray-400\">{post.date}</p>\n              </div>\n            </article>\n          ))}\n        </div>\n      </div>\n    </div>\n  );\n}",
+      "type": "registry:component",
+      "target": "components/sections/blog-page.tsx"
+    }
+  ],
+  "tailwind": {
+    "config": {
+      "theme": {
+        "extend": {}
+      }
+    }
+  },
+  "meta": {
+    "description": "Blog listing page with grid layout",
+    "source": "http://localhost:3000/r/blog-page.json"
+  }
+}

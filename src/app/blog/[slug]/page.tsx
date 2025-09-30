@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ChevronLeft } from "lucide-react";
 import { DiscountCta } from "@/components/sections/discount-cta";
 import { blogPosts } from "@/data/blog";
+import { AlpineV0Menu } from "@/components/AlpineV0Menu";
 
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
@@ -15,6 +16,9 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
   return (
     <div className="min-h-screen">
+      {/* V0 Menu Button */}
+      <AlpineV0Menu page="blog" />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-12 sm:py-16 md:py-20 lg:py-26 pb-16 sm:pb-24 md:pb-32">
 
         {/* Back Navigation */}

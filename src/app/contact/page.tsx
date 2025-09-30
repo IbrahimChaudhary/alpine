@@ -7,6 +7,7 @@ import { Lightbulb, MessageSquare , Phone } from 'lucide-react';
 import { useState } from 'react';
 import { toast } from 'sonner';
 import confetti from 'canvas-confetti';
+import { AlpineV0Menu } from "@/components/AlpineV0Menu";
 
 
 /**
@@ -88,7 +89,7 @@ export default function ContactPage() {
         email: '',
         message: ''
       });
-    } catch (error) {
+    } catch {
       toast.error('Failed to send message', {
         description: 'Please try again or contact us directly.',
         duration: 5000,
@@ -100,6 +101,9 @@ export default function ContactPage() {
 
   return (
     <div className="min-h-screen md:py-32 py-12 px-4 sm:px-6 ">
+      {/* V0 Menu Button */}
+      <AlpineV0Menu page="contact" />
+
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           {/* Left Column - Contact Information */}

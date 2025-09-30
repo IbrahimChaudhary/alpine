@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "terms-page",
+  "type": "registry:block",
+  "title": "Terms of Service Page",
+  "description": "Terms and conditions page",
+  "dependencies": [
+    "react",
+    "lucide-react"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "components/sections/terms-page.tsx",
+      "content": "\"use client\";\n\nimport { Calendar } from \"lucide-react\";\n\nexport function TermsPage() {\n  return (\n    <div className=\"min-h-screen\">\n      <div className=\"max-w-4xl mx-auto px-8 py-20\">\n        <div className=\"text-center mb-16\">\n          <div className=\"flex border rounded-full px-4 py-2 w-fit mx-auto items-center gap-2 mb-8\">\n            <Calendar className=\"w-5 h-5\" />\n            <span className=\"text-lg\">Jan 14, 2025</span>\n          </div>\n\n          <h1 className=\"text-4xl font-semibold mb-8\">Terms of Service</h1>\n\n          <p className=\"text-lg text-left leading-relaxed\">\n            Welcome to Sonic. By accessing or using our website, products, or services, you agree to be bound by the following Terms and Conditions.\n          </p>\n        </div>\n\n        <div className=\"space-y-12\">\n          <section>\n            <h2 className=\"text-2xl font-bold mb-4\">1. Acceptance of Terms</h2>\n            <div className=\"space-y-3 text-base\">\n              <p>By using our services, you confirm that you are at least 18 years old.</p>\n              <p>These Terms form a legally binding agreement between you and Sonic.</p>\n            </div>\n          </section>\n\n          <section>\n            <h2 className=\"text-2xl font-bold mb-4\">2. Services Provided</h2>\n            <div className=\"space-y-3 text-base\">\n              <p>Sonic provides AI-powered tools and solutions.</p>\n              <p>All features are subject to availability and may be updated.</p>\n            </div>\n          </section>\n\n          <section>\n            <h2 className=\"text-2xl font-bold mb-4\">3. User Responsibilities</h2>\n            <div className=\"space-y-3 text-base\">\n              <p>You agree to use our services for lawful purposes only.</p>\n              <p>You are responsible for complying with all applicable laws.</p>\n            </div>\n          </section>\n\n          <section>\n            <h2 className=\"text-2xl font-bold mb-4\">4. Privacy and Data Use</h2>\n            <div className=\"space-y-3 text-base\">\n              <p>Your privacy is important to us. By using Sonic, you agree to our Privacy Policy.</p>\n              <p>Data collected may be used to improve our services.</p>\n            </div>\n          </section>\n\n          <section>\n            <h2 className=\"text-2xl font-bold mb-4\">5. Intellectual Property</h2>\n            <div className=\"space-y-3 text-base\">\n              <p>All content and algorithms are the intellectual property of Sonic.</p>\n              <p>You may not duplicate or distribute without consent.</p>\n            </div>\n          </section>\n\n          <section>\n            <h2 className=\"text-2xl font-bold mb-4\">6. Limitation of Liability</h2>\n            <div className=\"space-y-3 text-base\">\n              <p>Sonic is provided as is without warranties of any kind.</p>\n              <p>We are not responsible for any losses arising from use of our services.</p>\n            </div>\n          </section>\n\n          <section>\n            <h2 className=\"text-2xl font-bold mb-4\">7. Contact Us</h2>\n            <div className=\"space-y-3 text-base\">\n              <p>If you have questions, please contact us at:</p>\n              <p>\n                <a href=\"mailto:sonic@example.com\" className=\"underline\">\n                  sonic@example.com\n                </a>\n              </p>\n            </div>\n          </section>\n        </div>\n      </div>\n    </div>\n  );\n}",
+      "type": "registry:component",
+      "target": "components/sections/terms-page.tsx"
+    }
+  ],
+  "tailwind": {
+    "config": {
+      "theme": {
+        "extend": {}
+      }
+    }
+  },
+  "meta": {
+    "description": "Terms and conditions page",
+    "source": "http://localhost:3000/r/terms-page.json"
+  }
+}

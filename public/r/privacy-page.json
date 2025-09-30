@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "privacy-page",
+  "type": "registry:block",
+  "title": "Privacy Policy Page",
+  "description": "Privacy policy page",
+  "dependencies": [
+    "react",
+    "lucide-react"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "components/sections/privacy-page.tsx",
+      "content": "\"use client\";\n\nimport { Calendar } from \"lucide-react\";\n\nexport function PrivacyPage() {\n  return (\n    <div className=\"min-h-screen\">\n      <div className=\"max-w-4xl mx-auto px-8 py-20\">\n        <div className=\"text-center mb-16\">\n          <div className=\"flex border rounded-full px-4 py-2 w-fit mx-auto items-center gap-2 mb-8\">\n            <Calendar className=\"w-5 h-5\" />\n            <span className=\"text-lg\">Jan 14, 2025</span>\n          </div>\n\n          <h1 className=\"text-4xl font-semibold mb-8\">Privacy Policy</h1>\n\n          <p className=\"text-lg text-left leading-relaxed\">\n            This Privacy Policy describes our policies on the collection, use and disclosure of your information when you use our Service.\n          </p>\n        </div>\n\n        <div className=\"space-y-12\">\n          <section>\n            <h2 className=\"text-2xl font-bold mb-4\">Information We Collect</h2>\n            <div className=\"space-y-3 text-base\">\n              <p>We may collect personal information such as your name, email address, and usage data.</p>\n              <p>Usage data is collected automatically and may include IP address, browser type, and device information.</p>\n            </div>\n          </section>\n\n          <section>\n            <h2 className=\"text-2xl font-bold mb-4\">How We Use Your Information</h2>\n            <div className=\"space-y-3 text-base\">\n              <p>We use your information to provide and maintain our Service.</p>\n              <p>We may use your data to contact you with newsletters and marketing materials.</p>\n            </div>\n          </section>\n\n          <section>\n            <h2 className=\"text-2xl font-bold mb-4\">Data Security</h2>\n            <div className=\"space-y-3 text-base\">\n              <p>The security of your personal data is important to us.</p>\n              <p>While we strive to protect your data, no method of transmission is 100% secure.</p>\n            </div>\n          </section>\n\n          <section>\n            <h2 className=\"text-2xl font-bold mb-4\">Children's Privacy</h2>\n            <div className=\"space-y-3 text-base\">\n              <p>Our Service does not address anyone under the age of 13.</p>\n              <p>We do not knowingly collect information from children under 13.</p>\n            </div>\n          </section>\n\n          <section>\n            <h2 className=\"text-2xl font-bold mb-4\">Changes to This Policy</h2>\n            <div className=\"space-y-3 text-base\">\n              <p>We may update our Privacy Policy from time to time.</p>\n              <p>We will notify you of any changes by posting the new policy on this page.</p>\n            </div>\n          </section>\n\n          <section>\n            <h2 className=\"text-2xl font-bold mb-4\">Contact Us</h2>\n            <div className=\"space-y-3 text-base\">\n              <p>If you have questions about this Privacy Policy, contact us at:</p>\n              <p>\n                <a href=\"mailto:example@example.com\" className=\"underline\">\n                  example@example.com\n                </a>\n              </p>\n            </div>\n          </section>\n        </div>\n      </div>\n    </div>\n  );\n}",
+      "type": "registry:component",
+      "target": "components/sections/privacy-page.tsx"
+    }
+  ],
+  "tailwind": {
+    "config": {
+      "theme": {
+        "extend": {}
+      }
+    }
+  },
+  "meta": {
+    "description": "Privacy policy page",
+    "source": "http://localhost:3000/r/privacy-page.json"
+  }
+}

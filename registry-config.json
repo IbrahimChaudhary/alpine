@@ -1,0 +1,116 @@
+{
+  "blocks": [
+    {
+      "name": "alpine-home-page",
+      "title": "Alpine Home Page",
+      "description": "Complete Alpine theme home page with hero, innovation, speaker features, values, gallery, FAQ, blog, and CTA sections",
+      "mainComponent": "src/app/page.tsx",
+      "dependencies": [
+        "src/components/sections/hero-section.tsx",
+        "src/components/sections/innovation-section.tsx",
+        "src/components/sections/speaker-features.tsx",
+        "src/components/sections/values-section.tsx",
+        "src/components/sections/gallery-section.tsx",
+        "src/components/sections/faq-section.tsx",
+        "src/components/sections/blog-section.tsx",
+        "src/components/sections/discount-cta.tsx",
+        "src/components/ui/animated-button.tsx"
+      ],
+      "npmDependencies": ["react", "next", "lucide-react", "framer-motion", "@radix-ui/react-accordion", "canvas-confetti"],
+      "registryDependencies": ["button", "card", "accordion"]
+    },
+    {
+      "name": "about-page",
+      "title": "About Page",
+      "description": "About page with hero, mission-vision, and values sections",
+      "mainComponent": "src/app/about/page.tsx",
+      "dependencies": [
+        "src/components/sections/about-hero.tsx",
+        "src/components/sections/mission-vision.tsx",
+        "src/components/sections/values-section.tsx",
+        "src/components/sections/blog-section.tsx",
+        "src/components/sections/discount-cta.tsx"
+      ],
+      "npmDependencies": ["react", "next", "lucide-react", "framer-motion"],
+      "registryDependencies": ["button", "card"]
+    },
+    {
+      "name": "products-page",
+      "title": "Products Page",
+      "description": "Products page with hero, speaker features, and gallery sections",
+      "mainComponent": "src/app/products/page.tsx",
+      "dependencies": [
+        "src/components/sections/products-hero-section.tsx",
+        "src/components/sections/speaker-features.tsx",
+        "src/components/sections/product-specifications.tsx",
+        "src/components/sections/gallery-section.tsx",
+        "src/components/sections/discount-cta.tsx"
+      ],
+      "npmDependencies": ["react", "next", "lucide-react", "framer-motion"],
+      "registryDependencies": ["button", "card", "tabs"]
+    },
+    {
+      "name": "hero-section",
+      "title": "Hero Section",
+      "description": "Main hero section with heading, description, and CTA button",
+      "mainComponent": "src/components/sections/hero-section.tsx",
+      "dependencies": [],
+      "npmDependencies": ["react", "lucide-react", "framer-motion"],
+      "registryDependencies": ["button"]
+    },
+    {
+      "name": "values-section",
+      "title": "Values Section",
+      "description": "Values showcase section with icons and descriptions",
+      "mainComponent": "src/components/sections/values-section.tsx",
+      "dependencies": [],
+      "npmDependencies": ["react", "lucide-react"],
+      "registryDependencies": ["card"]
+    },
+    {
+      "name": "speaker-features",
+      "title": "Speaker Features",
+      "description": "Speaker features section with specifications and highlights",
+      "mainComponent": "src/components/sections/speaker-features.tsx",
+      "dependencies": [],
+      "npmDependencies": ["react", "lucide-react"],
+      "registryDependencies": ["card"]
+    },
+    {
+      "name": "innovation-section",
+      "title": "Innovation Section",
+      "description": "Innovation showcase section",
+      "mainComponent": "src/components/sections/innovation-section.tsx",
+      "dependencies": [],
+      "npmDependencies": ["react", "lucide-react", "framer-motion"],
+      "registryDependencies": ["button"]
+    },
+    {
+      "name": "gallery-section",
+      "title": "Gallery Section",
+      "description": "Image gallery section",
+      "mainComponent": "src/components/sections/gallery-section.tsx",
+      "dependencies": [],
+      "npmDependencies": ["react", "next"],
+      "registryDependencies": []
+    },
+    {
+      "name": "faq-section",
+      "title": "FAQ Section",
+      "description": "Frequently asked questions section",
+      "mainComponent": "src/components/sections/faq-section.tsx",
+      "dependencies": [],
+      "npmDependencies": ["react"],
+      "registryDependencies": ["accordion"]
+    },
+    {
+      "name": "blog-section",
+      "title": "Blog Section",
+      "description": "Blog posts showcase section",
+      "mainComponent": "src/components/sections/blog-section.tsx",
+      "dependencies": [],
+      "npmDependencies": ["react", "next"],
+      "registryDependencies": ["card"]
+    }
+  ]
+}
