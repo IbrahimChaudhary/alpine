@@ -15,9 +15,9 @@ interface ValueItem {
  * Values Section Props
  */
 interface ValuesSectionProps {
-  sectionTitle: string
-  sectionSubtitle: string
-  values: ValueItem[]
+  sectionTitle?: string
+  sectionSubtitle?: string
+  values?: ValueItem[]
   headerIcon?: string
   className?: string
   headingTitle?: string
@@ -37,11 +37,27 @@ interface ValuesSectionProps {
  * - Reusable across different sections
  */
 export function ValuesSection({
-  sectionTitle,
-  sectionSubtitle,
-  headingTitle,
-  values,
-  headerIcon,
+  sectionTitle = "Our Values",
+  sectionSubtitle = "Excellence in everything we do",
+  headingTitle = "What We Stand For",
+  values = [
+    {
+      iconName: "Star",
+      title: "Quality",
+      description: "We deliver premium products with exceptional craftsmanship"
+    },
+    {
+      iconName: "Shield",
+      title: "Reliability",
+      description: "Built to last with unmatched durability and performance"
+    },
+    {
+      iconName: "Heart",
+      title: "Customer First",
+      description: "Your satisfaction is our top priority"
+    }
+  ],
+  headerIcon = "Diamond",
   className = ""
 }: ValuesSectionProps) {
   // Icon mapping

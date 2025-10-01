@@ -6,7 +6,9 @@
   "description": "Image gallery section",
   "dependencies": [
     "react",
-    "next"
+    "next",
+    "lucide-react",
+    "framer-motion"
   ],
   "devDependencies": [],
   "registryDependencies": [],

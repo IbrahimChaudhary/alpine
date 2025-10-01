@@ -54,8 +54,8 @@
       "title": "Hero Section",
       "description": "Main hero section with heading, description, and CTA button",
       "mainComponent": "src/components/sections/hero-section.tsx",
-      "dependencies": [],
-      "npmDependencies": ["react", "lucide-react", "framer-motion"],
+      "dependencies": ["src/components/ui/animated-button.tsx"],
+      "npmDependencies": ["react", "lucide-react", "framer-motion", "canvas-confetti"],
       "registryDependencies": ["button"]
     },
     {
@@ -72,17 +72,17 @@
       "title": "Speaker Features",
       "description": "Speaker features section with specifications and highlights",
       "mainComponent": "src/components/sections/speaker-features.tsx",
-      "dependencies": [],
-      "npmDependencies": ["react", "lucide-react"],
-      "registryDependencies": ["card"]
+      "dependencies": ["src/components/ui/animated-button.tsx"],
+      "npmDependencies": ["react", "lucide-react", "canvas-confetti"],
+      "registryDependencies": ["button"]
     },
     {
       "name": "innovation-section",
       "title": "Innovation Section",
       "description": "Innovation showcase section",
       "mainComponent": "src/components/sections/innovation-section.tsx",
-      "dependencies": [],
-      "npmDependencies": ["react", "lucide-react", "framer-motion"],
+      "dependencies": ["src/components/ui/animated-button.tsx"],
+      "npmDependencies": ["react", "lucide-react", "framer-motion", "canvas-confetti"],
       "registryDependencies": ["button"]
     },
     {
@@ -91,7 +91,7 @@
       "description": "Image gallery section",
       "mainComponent": "src/components/sections/gallery-section.tsx",
       "dependencies": [],
-      "npmDependencies": ["react", "next"],
+      "npmDependencies": ["react", "next", "lucide-react", "framer-motion"],
       "registryDependencies": []
     },
     {
@@ -99,9 +99,9 @@
       "title": "FAQ Section",
       "description": "Frequently asked questions section",
       "mainComponent": "src/components/sections/faq-section.tsx",
-      "dependencies": [],
-      "npmDependencies": ["react"],
-      "registryDependencies": ["accordion"]
+      "dependencies": ["src/components/ui/accordion.tsx"],
+      "npmDependencies": ["react", "@radix-ui/react-accordion"],
+      "registryDependencies": []
     },
     {
       "name": "blog-section",
