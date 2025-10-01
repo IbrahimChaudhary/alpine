@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { ChevronRight } from "lucide-react"
+import { ShoppingCart, Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { ThemeToggle } from "@/components/ui/theme-toggle"
 import { useState, useEffect } from "react"
@@ -15,15 +15,14 @@ interface NavItem {
 }
 
 /**
- * Navbar Component
+ * Navbar Component - Redesigned
  *
- * A responsive navigation bar with the following features:
- * - SONIC brand logo
- * - Main navigation links
- * - Theme toggle (dark/light mode)
- * - Call-to-action button
- * - Mobile responsive design
- * - Smooth transitions and hover effects
+ * A modern, unique navigation bar with:
+ * - Centered logo with decorative elements
+ * - Pill-shaped navigation container
+ * - Icon-based CTA
+ * - Smooth animations
+ * - Glassmorphism effects
  */
 export function Navbar() {
   // Navigation menu items
@@ -37,6 +36,16 @@ export function Navbar() {
 
   // Mobile menu state
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+
+  // Handle scroll effect
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20)
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   // Disable body scroll when mobile menu is open
   useEffect(() => {
@@ -46,131 +55,112 @@ export function Navbar() {
       document.body.style.overflow = 'unset'
     }
 
-    // Cleanup on unmount
     return () => {
       document.body.style.overflow = 'unset'
     }
   }, [isMobileMenuOpen])
 
   return (
-    <nav className=" w-full mt-3 ">
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300  ${
+      scrolled ? 'py-2' : 'py-4'
+    }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          {/* Brand Logo */}
-          <div className="flex-shrink-0">
+        {/* Main Navigation Container */}
+        <div className={`relative bg-background/80 dark:bg-background/80 backdrop-blur-lg border border-border/50 rounded-full shadow-lg transition-all duration-300 ${
+          scrolled ? 'shadow-xl' : ''
+        }`}>
+          <div className="flex items-center justify-between px-4 sm:px-6 h-16 sm:h-20">
+
+            {/* Left: Navigation Links (Desktop) */}
+            <div className="hidden md:flex items-center space-x-1 flex-1">
+              {navItems.slice(0, 2).map((item) => (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className="px-3 lg:px-4 py-2 text-sm font-medium text-foreground/70 hover:text-foreground hover:bg-muted/50 rounded-full transition-all duration-200 whitespace-nowrap"
+                >
+                  {item.name}
+                </Link>
+              ))}
+            </div>
+
+            {/* Center: Brand Logo */}
             <Link
               href="/"
-              className="text-3xl font-bold text-foreground hover:opacity-80 transition-opacity duration-200"
+              className="flex items-center gap-2 group mx-4"
             >
-              ALPINE
+              <div className="w-2 h-2 bg-foreground rounded-full group-hover:scale-150 transition-transform duration-300" />
+              <span className="text-2xl sm:text-3xl font-bold text-foreground tracking-tight">
+                ALPINE
+              </span>
+              <div className="w-2 h-2 bg-foreground rounded-full group-hover:scale-150 transition-transform duration-300" />
             </Link>
-          </div>
 
-          {/* Desktop Navigation Links */}
-          <div className="hidden md:block">
-            <div className=" flex space-x-6">
+            {/* Right: Navigation Links (Desktop) */}
+            <div className="hidden md:flex items-center space-x-1 flex-1 justify-end">
+              {navItems.slice(2).map((item) => (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className="px-3 lg:px-4 py-2 text-sm font-medium text-foreground/70 hover:text-foreground hover:bg-muted/50 rounded-full transition-all duration-200 whitespace-nowrap"
+                >
+                  {item.name}
+                </Link>
+              ))}
+            </div>
+
+            {/* Far Right: Actions */}
+            <div className="flex items-center space-x-2">
+              <ThemeToggle />
+
+              {/* Shop Button */}
+              <Button
+                size="icon"
+                className="rounded-full w-10 h-10 bg-foreground text-background hover:bg-foreground/90"
+              >
+                <ShoppingCart className="h-5 w-5" />
+              </Button>
+
+              {/* Mobile Menu Button */}
+              <button
+                className="md:hidden relative w-10 h-10 flex items-center justify-center rounded-full hover:bg-muted/50 transition-colors"
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                aria-label="Toggle mobile menu"
+              >
+                {isMobileMenuOpen ? (
+                  <X className="h-5 w-5" />
+                ) : (
+                  <Menu className="h-5 w-5" />
+                )}
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile Menu */}
+        {isMobileMenuOpen && (
+          <div className="md:hidden mt-2 bg-background/95 backdrop-blur-lg border border-border/50 rounded-3xl shadow-xl p-6 animate-in slide-in-from-top-5 duration-300">
+            <nav className="space-y-1">
               {navItems.map((item) => (
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="px-1 py-2 text-base font-[500]  transition-all duration-200 relative group hover:opacity-70 dark:text-white text-[#575757]"
-                
+                  className="block px-4 py-3 text-base font-medium text-foreground/70 hover:text-foreground hover:bg-muted/50 rounded-xl transition-all duration-200"
+                  onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {item.name}
-
                 </Link>
               ))}
-            </div>
-          </div>
+            </nav>
 
-          {/* Right Side Actions */}
-          <div className="flex items-center space-x-3">
-            {/* Theme Toggle Button */}
-            <ThemeToggle />
-
-            {/* Call-to-Action Button */}
-            <Button
-            size={"lg"}
-              variant="outline"
-              className="hidden sm:flex items-center justify-center gap-2  px-6 py-7 rounded-full border-[1px] border-gray-300 text-[#575757] dark:text-white dark:bg-transparent text-[16px] bg-none font-medium hover:text-gray-800 transition-all duration-200 group"
-            >
-              Buy now
-              <ChevronRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
-            </Button>
-
-            {/* Mobile Menu Button with 2-line hamburger */}
-            <button
-              className="md:hidden relative w-8 h-8 flex flex-col justify-center items-center space-y-1.5 z-50"
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              aria-label="Toggle mobile menu"
-            >
-              <span
-                className={`w-6 h-0.5 bg-[#575757] dark:bg-white transition-all duration-300 ${
-                  isMobileMenuOpen ? 'rotate-45 translate-y-1' : ''
-                }`}
-              />
-              <span
-                className={`w-6 h-0.5 bg-[#575757] dark:bg-white transition-all duration-300 ${
-                  isMobileMenuOpen ? '-rotate-45 -translate-y-1' : ''
-                }`}
-              />
-            </button>
-          </div>
-        </div>
-
-        {/* Mobile Menu Overlay */}
-        {isMobileMenuOpen && (
-          <div className="fixed inset-0 z-40 md:hidden">
-            {/* Background overlay */}
-            <div
-              className="fixed inset-0 bg-black/50 backdrop-blur-sm"
-              onClick={() => setIsMobileMenuOpen(false)}
-            />
-
-            {/* Mobile Menu Panel - slides from right */}
-            <div
-              className={`fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-[#1a1a1a] shadow-2xl transform transition-transform duration-300 ease-out ${
-                isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
-              }`}
-            >
-          
-
-              {/* Menu content with grid layout */}
-              <div className="flex h-full">
-                {/* Left side - Navigation */}
-                <div className="flex flex-col h-full pt-20 pb-8 px-8 flex-1">
-                  {/* Navigation links */}
-                  <nav className="flex-1 space-y-8">
-                    {navItems.map((item, index) => (
-                      <Link
-                        key={item.name}
-                        href={item.href}
-                        className="block text-2xl font-light text-white/80 hover:text-white transition-colors duration-200"
-                        onClick={() => setIsMobileMenuOpen(false)}
-                        style={{
-                          animationDelay: `${index * 100}ms`,
-                        }}
-                      >
-                        {item.name}
-                      </Link>
-                    ))}
-                  </nav>
-
-                  {/* Bottom CTA Button */}
-                  <div className="mt-auto pt-8">
-                    <Button
-                      variant="secondary"
-                      className="w-full flex items-center justify-center gap-2 bg-white text-black px-6 py-4 rounded-full text-lg font-medium hover:bg-gray-100 transition-all duration-200 group"
-                      onClick={() => setIsMobileMenuOpen(false)}
-                    >
-                      Buy now
-                      <ChevronRight className="h-5 w-5 transition-transform duration-200 group-hover:translate-x-1" />
-                    </Button>
-                  </div>
-                </div>
-
-             
-              </div>
+            <div className="mt-6 pt-6 border-t border-border/50">
+              <Button
+                className="w-full rounded-full bg-foreground text-background hover:bg-foreground/90 gap-2"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                <ShoppingCart className="h-4 w-4" />
+                Shop Now
+              </Button>
             </div>
           </div>
         )}

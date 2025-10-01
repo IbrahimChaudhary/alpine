@@ -37,7 +37,7 @@ export function HeroSection() {
   return (
     <section
       ref={containerRef}
-      className="relative md:min-h-screen flex flex-col items-center justify-center overflow-hidden"
+      className="relative md:min-h-screen flex flex-col items-center justify-center overflow-hidden mt-6"
     >
       {/* Top Text */}
       <motion.div
